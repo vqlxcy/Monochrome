@@ -1,16 +1,17 @@
 using UnityEngine;
 
+[RequireComponent(typeof(CircleCollider2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class ItemBase : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public virtual void Effect()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        Effect();
+        Destroy(gameObject);
     }
 }
