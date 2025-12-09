@@ -7,7 +7,7 @@ public class StageColor : MonoBehaviour
     [SerializeField]
     GameObject _blackParent;
 
-    int _colorControlNumber = 0;
+    public int _colorControlNumber = 0;
 
     bool _white;
     bool _black;
@@ -26,10 +26,6 @@ public class StageColor : MonoBehaviour
                 _whiteParent.SetActive(false);
                 _blackParent.SetActive(true);
             break;
-        }
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            _colorControlNumber++;
         }
     }
 }
