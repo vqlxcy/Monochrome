@@ -2,15 +2,25 @@ using UnityEngine;
 
 public class StageColor : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    int _colorControlNumber;
 
-    // Update is called once per frame
-    void Update()
+    bool _white;
+    bool _black;
+
+    void ColorChange()
     {
-        
+        switch(_colorControlNumber % 2)
+        {
+            case 0:
+                _white = true;
+            break;
+            case 1:
+                _black = true;
+            break;
+        }
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            _colorControlNumber++;
+        }
     }
 }
