@@ -1,16 +1,23 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ModeObjectClick : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public static bool isPaused = false;
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseDown()
     {
-        
+        if (isPaused) return;
+
+        switch (gameObject.name)
+        {
+            case "PlayObject":
+                SceneManager.LoadScene("MonoStage01");
+                break;
+
+            case "ExplanationObject":
+                SceneManager.LoadScene("MonoExplanation01");
+                break;
+        }
     }
 }
