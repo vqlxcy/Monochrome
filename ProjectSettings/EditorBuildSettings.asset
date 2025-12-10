@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_WorkSpace/_SUDA/MonoGameClear.unity
     guid: 405484b58c16edb46a8ae34f73c23bb1
+  - enabled: 1
+    path: Assets/_WorkSpace/_SUDA/MonoExplanation01.unity
+    guid: f335a53d85075084098907c6c79e632c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
