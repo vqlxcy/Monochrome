@@ -1,16 +1,22 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameClearUIManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public Button playAgainButton;
+    public Button backToTitleButton;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        playAgainButton.onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene("MonoStage01");
+        });
+
+        backToTitleButton.onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene("MonoTitle");
+        });
     }
 }
