@@ -1,16 +1,22 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOverUIManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public Button retryButton;
+    public Button backToButton;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        retryButton.onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene("MonoStage01");
+        });
+
+        backToButton.onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene("MonoTitle");
+        });
     }
 }
