@@ -9,6 +9,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rb;
     private bool isGrounded;
 
+    private float moveInput;
+    private bool jumpInput;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -16,47 +19,43 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Move();
-        Jump();
-        WorldReverse();
-    }
+        // 入力取得のみ
+        moveInput = 0f;
+        if (Input.GetKey(KeyCode.A)) moveInput = -1f;
+        if (Input.GetKey(KeyCode.D)) moveInput = 1f;
 
-    // 左右移動
-    void Move()
-    {
-        float h = 0f;
+        if (Input.GetKeyDown(KeyCode.W))
+            jumpInput = true;
 
-        if (Input.GetKey(KeyCode.A)) h = -1f;
-        if (Input.GetKey(KeyCode.D)) h = 1f;
-
-        _rb.linearVelocity = new Vector2(h * moveSpeed, _rb.linearVelocity.y);
-    }
-
-    // ジャンプ
-    void Jump()
-    {
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded)
-        {
-            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, jumpForce);
-        }
-    }
-
-    // 世界反転（仮）
-    void WorldReverse()
-    {
         if (Input.GetKeyDown(KeyCode.Space))
-        {
             Debug.Log("世界反転！");
+    }
+
+    void FixedUpdate()
+    {
+        // 移動
+        _rb.linearVelocity = new Vector2(
+            moveInput * moveSpeed,
+            _rb.linearVelocity.y
+        );
+
+        // ジャンプ
+        if (jumpInput && isGrounded)
+        {
+            _rb.linearVelocity = new Vector2(
+                _rb.linearVelocity.x,
+                jumpForce
+            );
         }
+
+        jumpInput = false;
     }
 
     // 接地判定
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.contacts[0].normal.y > 0.5f)
-        {
             isGrounded = true;
-        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
