@@ -27,6 +27,27 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
             jumpInput = true;
 
+<<<<<<< HEAD
+=======
+        if (Input.GetKey(KeyCode.A)) h = -1f;
+        if (Input.GetKey(KeyCode.D)) h = 1f;
+
+        _rb.linearVelocity += new Vector2(h * moveSpeed, _rb.linearVelocity.y);
+    }
+
+    // ÉWÉÉÉìÉv
+    void Jump()
+    {
+        if (Input.GetKeyDown(KeyCode.W) && isGrounded)
+        {
+            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, jumpForce);
+        }
+    }
+
+    // ê¢äEîΩì]ÅiâºÅj
+    void WorldReverse()
+    {
+>>>>>>> 0d0353ced9bb23bbb4233027a7e019980a4d82e6
         if (Input.GetKeyDown(KeyCode.Space))
             Debug.Log("ê¢äEîΩì]ÅI");
     }
