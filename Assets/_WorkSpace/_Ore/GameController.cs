@@ -26,28 +26,25 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        //if (SceneManager.GetActiveScene().name == "MonoStage01")
-        
-            
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
             Debug.Log("tingting");
             _sc._colorControlNumber++;
 
-                _sc.ColorChange();
-                
-            }
+            _sc.ColorChange();
 
-        
+        }
+
+
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        
+
     }
 }
