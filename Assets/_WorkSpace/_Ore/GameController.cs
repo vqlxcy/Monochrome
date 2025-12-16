@@ -31,11 +31,6 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
         if (SceneManager.GetActiveScene().name == "MonoStage01")
         {
             _sc.ColorChange();
@@ -44,5 +39,10 @@ public class GameController : MonoBehaviour
                 _sc._colorControlNumber++;
             }
         }
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        
     }
 }
