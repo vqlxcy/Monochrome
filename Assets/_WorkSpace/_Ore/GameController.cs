@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GameController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void Start()
@@ -25,5 +27,10 @@ public class GameController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+
     }
 }
