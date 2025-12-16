@@ -39,6 +39,10 @@ public class GameController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "MonoStage01")
         {
             _sc.ColorChange();
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                _sc._colorControlNumber++;
+            }
         }
     }
 }
