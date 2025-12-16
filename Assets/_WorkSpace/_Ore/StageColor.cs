@@ -12,7 +12,7 @@ public class StageColor : MonoBehaviour
     bool _white;
     bool _black;
 
-    void ColorChange()
+    public void ColorChange()
     {
         switch(_colorControlNumber % 2)
         {
