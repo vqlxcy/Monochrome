@@ -1,16 +1,36 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameClearUIManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Button playAgainButton;
+    public Button backToTitleButton;
+
+    [Header("SE")]
+    public AudioSource audioSource;
+    public AudioClip buttonSE;
+
+    private void Start()
     {
-        
+        playAgainButton.onClick.AddListener(() =>
+        {
+            PlaySE();
+            SceneManager.LoadScene("MonoStage01");
+        });
+
+        backToTitleButton.onClick.AddListener(() =>
+        {
+            PlaySE();
+            SceneManager.LoadScene("MonoTitle");
+        });
     }
 
-    // Update is called once per frame
-    void Update()
+    void PlaySE()
     {
-        
+        if (audioSource != null && buttonSE != null)
+        {
+            audioSource.PlayOneShot(buttonSE);
+        }
     }
 }
