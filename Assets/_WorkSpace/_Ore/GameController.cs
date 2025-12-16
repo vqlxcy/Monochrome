@@ -31,14 +31,19 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "MonoStage01")
-        {
-            _sc.ColorChange();
+        //if (SceneManager.GetActiveScene().name == "MonoStage01")
+        
+            
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                _sc._colorControlNumber++;
+            Debug.Log("tingting");
+            _sc._colorControlNumber++;
+
+                _sc.ColorChange();
+                
             }
-        }
+
+        
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)

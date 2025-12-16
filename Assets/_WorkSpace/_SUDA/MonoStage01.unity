@@ -1484,8 +1484,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0c12b655e529d40b19c7dd371c81c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 500
-  jumpForce: 7
+  moveSpeed: 3
+  jumpForce: 2
 --- !u!61 &80247085
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5452,8 +5452,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feca5cbad0eae7746907f60ecf9bf749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageColor
-  _whiteParent: {fileID: 1330823173}
-  _blackParent: {fileID: 1957136789}
+  _whiteParent: {fileID: 1957136789}
+  _blackParent: {fileID: 1330823173}
   _colorControlNumber: 0
 --- !u!1 &1037575149
 GameObject:
