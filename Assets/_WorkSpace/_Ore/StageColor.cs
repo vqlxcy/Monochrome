@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class StageColor : MonoBehaviour
 {
-    [SerializeField]
-    GameObject _whiteParent;
-    [SerializeField]
-    GameObject _blackParent;
+    [SerializeField,Header("”’‚Ì¢ŠE‚Ì‚É‚¾‚¯Œ©‚¦‚é‚à‚Ì")]
+    GameObject _whiteDeleteParent;
+    [SerializeField,Header("•‚Ì¢ŠE‚Ì‚É‚¾‚¯Œ©‚¦‚é‚à‚Ì")]
+    GameObject _blackDeleteParent;
 
     public int _colorControlNumber = 0;
 
@@ -18,13 +18,13 @@ public class StageColor : MonoBehaviour
         {
             case 0:
                 _white = true;
-                _whiteParent.SetActive(true);
-                _blackParent.SetActive(false);
+                _whiteDeleteParent.SetActive(true);
+                _blackDeleteParent.SetActive(false);
             break;
             case 1:
                 _black = true;
-                _whiteParent.SetActive(false);
-                _blackParent.SetActive(true);
+                _whiteDeleteParent.SetActive(false);
+                _blackDeleteParent.SetActive(true);
             break;
         }
     }
