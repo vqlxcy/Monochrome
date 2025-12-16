@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.A)) h = -1f;
         if (Input.GetKey(KeyCode.D)) h = 1f;
 
-        _rb.linearVelocity = new Vector2(h * moveSpeed, _rb.linearVelocity.y);
+        _rb.linearVelocity += new Vector2(h * moveSpeed, _rb.linearVelocity.y);
     }
 
     // ƒWƒƒƒ“ƒv
