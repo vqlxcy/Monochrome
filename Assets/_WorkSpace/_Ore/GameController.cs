@@ -5,6 +5,9 @@ public class GameController : MonoBehaviour
 {
     static GameController instance { get; set; }
 
+
+    StageColor _sc;
+
     void Awake()
     {
         if (instance == null)
@@ -17,6 +20,8 @@ public class GameController : MonoBehaviour
             Destroy(gameObject);
         }
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        _sc = GetComponent<StageColor>();
     }
 
     void Start()
@@ -31,6 +36,9 @@ public class GameController : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-
+        if (SceneManager.GetActiveScene().name == "MonoStage01")
+        {
+            _sc.ColorChange();
+        }
     }
 }
