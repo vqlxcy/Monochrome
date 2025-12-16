@@ -694,7 +694,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: cb9dfe0ba116d524eb7aef6724537612, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -940,7 +940,7 @@ MonoBehaviour:
   playButton: {fileID: 876709219}
   explanationButton: {fileID: 146990934}
   audioSource: {fileID: 1694044452}
-  buttonSE: {fileID: 0}
+  buttonSE: {fileID: 8300000, guid: ac0bac58a788aa948abea1d494bb310d, type: 3}
 --- !u!1 &1733991324
 GameObject:
   m_ObjectHideFlags: 0
