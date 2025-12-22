@@ -2,29 +2,36 @@ using UnityEngine;
 
 public class StageColor : MonoBehaviour
 {
-    [SerializeField]
-    GameObject _whiteParent;
-    [SerializeField]
-    GameObject _blackParent;
+    [SerializeField,Header("îíÇÃê¢äEÇÃéûÇ…ÇæÇØå©Ç¶ÇÈÇ‡ÇÃ")]
+    GameObject _blackDeleteParent;
+    [SerializeField,Header("çïÇÃê¢äEÇÃéûÇ…ÇæÇØå©Ç¶ÇÈÇ‡ÇÃ")]
+    GameObject _whiteDeleteParent;
+    [SerializeField, Header("óºï˚Ç≈ë∂ç›Ç∑ÇÈÇ‡ÇÃ")]
+    GameObject _monoParent;
 
     public int _colorControlNumber = 0;
+
+    Color _monoParentColor;
 
     bool _white;
     bool _black;
 
     public void ColorChange()
     {
+        _monoParentColor = _monoParent.GetComponentInChildren<SpriteRenderer>().color;
         switch(_colorControlNumber % 2)
         {
             case 0:
                 _white = true;
-                _whiteParent.SetActive(true);
-                _blackParent.SetActive(false);
+                _monoParentColor = Color.black;
+                _blackDeleteParent.SetActive(true);
+                _whiteDeleteParent.SetActive(false);
             break;
             case 1:
                 _black = true;
-                _whiteParent.SetActive(false);
-                _blackParent.SetActive(true);
+                _monoParentColor = Color.white;
+                _blackDeleteParent.SetActive(false);
+                _whiteDeleteParent.SetActive(true);
             break;
         }
     }
