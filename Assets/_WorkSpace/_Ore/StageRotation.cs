@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class StageRotation : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField]
+    Transform _stage;
+    [SerializeField]
+    int _rotationAngle;
+    public void StageRotate()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _stage.eulerAngles = new Vector3(0, 0, _rotationAngle);
     }
 }
