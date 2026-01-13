@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("接地判定")]
     [SerializeField] private Transform groundCheck; // Playerの子オブジェクトに"GroundCheck"を作りここに入れる
-    [SerializeField] private Vector2 groundCheckSize = new Vector2(0.8f, 0.1f);
+    [SerializeField] private Vector2 groundCheckSize = new Vector2(0.8f, 0.1f); // 接地判定の範囲
     [SerializeField] private LayerMask groundLayer; // Layerで"Ground"を作ってここに設定する(地面のLayerはGroundにする)
 
     private Rigidbody2D _rb;
@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Jump()
     {
-        _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, jumpForce);
+        _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, jumpForce); // _rb.linearVelocity.xを変えることで、ジャンプ中の左右移動を制限できる
     } 
     private void OnDrawGizmos() // 接地判定の可視化
     {
@@ -61,3 +61,4 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 }
+// NoFrictionをBoxCollider2Dに入れる
