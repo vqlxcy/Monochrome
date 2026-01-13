@@ -11,25 +11,23 @@ public class StageColor : MonoBehaviour
 
     public int _colorControlNumber = 0;
 
-    Color _monoParentColor;
+    SpriteRenderer[] _monoParentColor;
 
     bool _white;
     bool _black;
 
     public void ColorChange()
     {
-        _monoParentColor = _monoParent.GetComponentInChildren<SpriteRenderer>().color;
+        _monoParentColor = _monoParent.GetComponentsInChildren<SpriteRenderer>();
         switch(_colorControlNumber % 2)
         {
             case 0:
                 _white = true;
-                _monoParentColor = Color.black;
                 _blackDeleteParent.SetActive(true);
                 _whiteDeleteParent.SetActive(false);
             break;
             case 1:
                 _black = true;
-                _monoParentColor = Color.white;
                 _blackDeleteParent.SetActive(false);
                 _whiteDeleteParent.SetActive(true);
             break;
