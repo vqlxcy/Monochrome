@@ -7,6 +7,9 @@ public class GameController : MonoBehaviour
 
 
     StageColor _sc;
+    StageRotation _sr;
+
+    int _stageNumber;
 
     void Awake()
     {
@@ -22,6 +25,7 @@ public class GameController : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         _sc = GetComponent<StageColor>();
+        _sr = GetComponent<StageRotation>();
     }
 
     void Start()
@@ -40,11 +44,29 @@ public class GameController : MonoBehaviour
 
         }
 
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _sr.StageRotate();
+        }
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-
+        if (SceneManager.GetActiveScene().name == "MonoStage01")
+        {
+            _stageNumber = 1;
+        }
+        else if (SceneManager.GetActiveScene().name == "MonoStage02")
+        {
+            _stageNumber = 2;
+        }
+        else if (SceneManager.GetActiveScene().name == "MonoStage03")
+        {
+            _stageNumber = 3;
+        }
+        else
+        {
+            _stageNumber = 0;
+        }
     }
 }
