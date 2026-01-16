@@ -35,18 +35,22 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (_stageNumber >= 1)
         {
-            Debug.Log("tingting");
-            _sc._colorControlNumber++;
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                _sc._colorControlNumber++;
 
-            _sc.ColorChange();
+                _sc.ColorChange();
+            }
 
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _sr.StageRotate();
+            if (_stageNumber >= 2)
+            {
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    _sr.StageRotate();
+                }
+            }
         }
     }
 
