@@ -41,7 +41,7 @@ public class GameController : MonoBehaviour
             {
                 _sc._colorControlNumber++;
 
-                _sc.ColorChange();
+                _sc.BlockColorChange();
             }
 
             if (_stageNumber >= 2)
