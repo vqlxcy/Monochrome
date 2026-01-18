@@ -1,15 +1,24 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(StageColor))]
+[RequireComponent(typeof(StageRotation))]
 public class GameController : MonoBehaviour
 {
     static GameController instance { get; set; }
 
-
     StageColor _sc;
     StageRotation _sr;
 
+    [SerializeField]
+    string _firstStage;
+    [SerializeField]
+    string _secondStage;
+    [SerializeField]
+    string _thirdStage;
+
     int _stageNumber;
+    public bool _isGoal;
 
     void Awake()
     {
@@ -42,6 +51,12 @@ public class GameController : MonoBehaviour
                 _sc._colorControlNumber++;
 
                 _sc.BlockColorChange();
+                _sc.BGColorChange();
+            }
+
+            if (_isGoal)
+            {
+                SceneManager.LoadScene(_firstStage);
             }
 
             if (_stageNumber >= 2)
@@ -56,15 +71,15 @@ public class GameController : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (SceneManager.GetActiveScene().name == "MonoStage01")
+        if (SceneManager.GetActiveScene().name == _firstStage)
         {
             _stageNumber = 1;
         }
-        else if (SceneManager.GetActiveScene().name == "MonoStage02")
+        else if (SceneManager.GetActiveScene().name == _secondStage)
         {
             _stageNumber = 2;
         }
-        else if (SceneManager.GetActiveScene().name == "MonoStage03")
+        else if (SceneManager.GetActiveScene().name == _thirdStage)
         {
             _stageNumber = 3;
         }
