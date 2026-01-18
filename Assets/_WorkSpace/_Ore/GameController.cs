@@ -16,9 +16,12 @@ public class GameController : MonoBehaviour
     string _secondStage;
     [SerializeField]
     string _thirdStage;
+    [SerializeField]
+    GameObject _firstStageGoalInstanceButton;
 
     int _stageNumber;
-    public bool _isGoal;
+    public bool _isGoal = false;
+    public bool _isButtonClicked = false;
 
     void Awake()
     {
@@ -54,8 +57,18 @@ public class GameController : MonoBehaviour
                 _sc.BGColorChange();
             }
 
+            if (_isButtonClicked)
+            {
+                _firstStageGoalInstanceButton.SetActive(true);
+            }
+            else
+            {
+                _firstStageGoalInstanceButton.SetActive(false);
+            }
+
             if (_isGoal)
             {
+                _isGoal = false;
                 SceneManager.LoadScene(_firstStage);
             }
 
