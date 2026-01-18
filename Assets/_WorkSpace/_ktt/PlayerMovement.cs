@@ -9,17 +9,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 10f;
 
     [Header("接地判定")]
-    [SerializeField] private Transform groundCheck; // Playerの子オブジェクトに"GroundCheck"を作りここに入れる
-    [SerializeField] private Vector2 groundCheckSize = new Vector2(0.8f, 0.1f); // 接地判定の範囲
-    [SerializeField] private LayerMask groundLayer; // Layerで"Ground"を作ってここに設定する(地面のLayerはGroundにする)
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private Vector2 groundCheckSize = new Vector2(0.8f, 0.1f);
 
     private Rigidbody2D _rb;
     private bool isGrounded;
     private float moveInput;
+
     void Start()
     {
-        _rb = GetComponent<Rigidbody2D>(); // GravityScaleは3くらい
+        _rb = GetComponent<Rigidbody2D>();
     }
+
     void Update()
     {
         // 入力取得
@@ -33,26 +34,46 @@ public class PlayerMovement : MonoBehaviour
             moveInput = 1f;
         }
 
-        CheckGrounded(); // 接地判定
-       
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) // ジャンプ
+        // 接地判定
+        CheckGrounded();
+
+        // ジャンプ
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             Jump();
         }
     }
+
     void FixedUpdate()
     {
-        _rb.linearVelocity = new Vector2(moveInput * moveSpeed, _rb.linearVelocity.y); // 移動
+        // 移動
+        _rb.linearVelocity = new Vector2(moveInput * moveSpeed, _rb.linearVelocity.y);
     }
+
     private void CheckGrounded()
     {
-        isGrounded = Physics2D.OverlapBox(groundCheck.position, groundCheckSize, 0f, groundLayer); // OverlapBoxでIsTriggerのコライダーも検出
+        // レイヤーを使わずに接地判定（プレイヤー自身以外のコライダーを検出）
+        Collider2D[] hits = Physics2D.OverlapBoxAll(groundCheck.position, groundCheckSize, 0f);
+
+        // 検出したコライダーの中にプレイヤー以外があれば接地
+        isGrounded = false;
+        foreach (Collider2D hit in hits)
+        {
+            if (hit.gameObject != gameObject)
+            {
+                isGrounded = true;
+                break;
+            }
+        }
     }
+
     private void Jump()
     {
-        _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, jumpForce); // _rb.linearVelocity.xを変えることで、ジャンプ中の左右移動を制限できる
-    } 
-    private void OnDrawGizmos() // 接地判定の可視化
+        _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, jumpForce);
+    }
+
+    // 接地判定の可視化（Editor上でのみ表示）
+    private void OnDrawGizmos()
     {
         if (groundCheck != null)
         {
@@ -61,4 +82,3 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 }
-// NoFrictionをBoxCollider2Dに入れる
