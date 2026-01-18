@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour
     GameObject _firstStageGoalInstanceButton;
 
     int _stageNumber;
-    public bool _isGoal = false;
+    public bool _isGoal;
     public bool _isButtonClicked = false;
 
     void Awake()
@@ -57,18 +57,8 @@ public class GameController : MonoBehaviour
                 _sc.BGColorChange();
             }
 
-            if (_isButtonClicked)
-            {
-                _firstStageGoalInstanceButton.SetActive(true);
-            }
-            else
-            {
-                _firstStageGoalInstanceButton.SetActive(false);
-            }
-
             if (_isGoal)
             {
-                _isGoal = false;
                 SceneManager.LoadScene(_firstStage);
             }
 
@@ -78,12 +68,22 @@ public class GameController : MonoBehaviour
                 {
                     _sr.StageRotate();
                 }
+
+                if (_isButtonClicked)
+                {
+                    _firstStageGoalInstanceButton.SetActive(true);
+                }
+                else
+                {
+                    _firstStageGoalInstanceButton.SetActive(false);
+                }
             }
         }
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        _isGoal = false;
         if (SceneManager.GetActiveScene().name == _firstStage)
         {
             _stageNumber = 1;
