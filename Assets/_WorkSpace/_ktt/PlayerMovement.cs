@@ -12,9 +12,23 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Vector2 groundCheckSize = new Vector2(0.8f, 0.1f);
 
+    [Header("ゴール設定")]
+    [SerializeField] private string goalTag = "Goal";
+
     private Rigidbody2D _rb;
+    private GameController _gameController;
     private bool isGrounded;
     private float moveInput;
+    private bool isGoal = false;
+
+    void Awake()
+    {
+        _gameController = FindAnyObjectByType<GameController>();
+        if (_gameController == null)
+        {
+            Debug.LogError("GameControllerが見つかりません！");
+        }
+    }
 
     void Start()
     {
@@ -23,6 +37,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        // ゴール到達後は操作不可
+        if (isGoal) return;
+
         // 入力取得
         moveInput = 0f;
         if (Input.GetKey(KeyCode.A))
@@ -70,6 +87,15 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, jumpForce);
+    }
+
+    // ゴール判定
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag(goalTag))
+        {
+            _gameController._isGoal = true;
+        }
     }
 
     // 接地判定の可視化（Editor上でのみ表示）
