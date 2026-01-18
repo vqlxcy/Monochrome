@@ -6,13 +6,13 @@ public class StageColor : MonoBehaviour
     GameObject _blackDeleteParent;
     [SerializeField, Header("•‚Ì¢ŠE‚Ì‚É‚¾‚¯Œ©‚¦‚é‚à‚Ì")]
     GameObject _whiteDeleteParent;
-    [SerializeField, Header("—¼•û‚Å‘¶İ‚·‚é‚à‚Ì")]
+    [SerializeField, Header("—¼•û‚Å‘¶İ‚·‚é‚à‚Ì(Sprute’£‘Ö)")]
     GameObject _monoParent;
-    [SerializeField, Header("‰æ‘œ‚Ì·‚µ‘Ö‚¦‚Å‚È‚­Color‚ğ‚¢‚¶‚Á‚Ä”½“]‚³‚¹‚½‚¢‚à‚Ì")]
+    [SerializeField, Header("—¼•û‚Å‘¶İ‚·‚é‚à‚Ì(Color”’l•ÏX)")]
     GameObject _monoParentBG;
-    [SerializeField, Header("—¼•û‚Ì¢ŠE‚Å‘¶İ‚·‚é‚à‚Ì‚ÌŒ©‚½–Ú(”’‚Ì)")]
+    [SerializeField, Header("—¼•û‚Ì¢ŠE‚Å‘¶İ‚·‚é‚à‚Ì‚ÌSprite(”’‚Ì)")]
     Sprite _blackBlock;
-    [SerializeField, Header("—¼•û‚Ì¢ŠE‚Å‘¶İ‚·‚é‚à‚Ì‚ÌŒ©‚½–Ú(•‚Ì)")]
+    [SerializeField, Header("—¼•û‚Ì¢ŠE‚Å‘¶İ‚·‚é‚à‚Ì‚ÌSprite(•‚Ì)")]
     Sprite _whiteBlock;
 
     public int _colorControlNumber = 0;
@@ -77,9 +77,9 @@ public class StageColor : MonoBehaviour
                 {
                     if (_monoParentBGColor[i].color == new Color(0, 0, 0))
                     {
-                        _monoParentBGColor[i].color = new Color(255, 255, 255);
+                        _monoParentBGColor[i].color = new Color(1, 1, 1);
                     }
-                    else if (_monoParentBGColor[i].color == new Color(255, 255, 255)) 
+                    else if (_monoParentBGColor[i].color == new Color(1, 1, 1))  
                     {
                         _monoParentBGColor[i].color = new Color(0, 0, 0);
                     }
@@ -92,9 +92,9 @@ public class StageColor : MonoBehaviour
                 {
                     if (_monoParentBGColor[i].color == new Color(0, 0, 0))
                     {
-                        _monoParentBGColor[i].color = new Color(255, 255, 255);
+                        _monoParentBGColor[i].color = new Color(1, 1, 1);
                     }
-                    else if (_monoParentBGColor[i].color == new Color(255, 255, 255))
+                    else if (_monoParentBGColor[i].color == new Color(1, 1, 1)) 
                     {
                         _monoParentBGColor[i].color = new Color(0, 0, 0);
                     }
