@@ -30,6 +30,7 @@ public class StageColor : MonoBehaviour
         {
             case 0:
                 _white = true;
+                _black = false;
                 for (int i = 0; i < _monoParentColor.Length; i++)
                 {
                     if (_monoParentColor[i].sprite == _whiteBlock)
@@ -46,6 +47,7 @@ public class StageColor : MonoBehaviour
             break;
             case 1:
                 _black = true;
+                _white = false;
                 for (int i = 0; i < _monoParentColor.Length; i++)
                 {
                     if (_monoParentColor[i].sprite == _whiteBlock)
@@ -66,5 +68,38 @@ public class StageColor : MonoBehaviour
     public void BGColorChange()
     {
         _monoParentBGColor = _monoParentBG.GetComponentsInChildren<SpriteRenderer>();
+        switch(_colorControlNumber % 2)
+        {
+            case 0:
+                _white = true;
+                _black = false;
+                for (int i = 0; i < _monoParentBGColor.Length; i++)
+                {
+                    if (_monoParentBGColor[i].color == new Color(0, 0, 0))
+                    {
+                        _monoParentBGColor[i].color = new Color(255, 255, 255);
+                    }
+                    else if (_monoParentBGColor[i].color == new Color(255, 255, 255)) 
+                    {
+                        _monoParentBGColor[i].color = new Color(0, 0, 0);
+                    }
+                }
+            break;
+            case 1:
+                _black = true;
+                _white = false;
+                for (int i = 0; i < _monoParentBGColor.Length; i++)
+                {
+                    if (_monoParentBGColor[i].color == new Color(0, 0, 0))
+                    {
+                        _monoParentBGColor[i].color = new Color(255, 255, 255);
+                    }
+                    else if (_monoParentBGColor[i].color == new Color(255, 255, 255))
+                    {
+                        _monoParentBGColor[i].color = new Color(0, 0, 0);
+                    }
+                }
+            break;
+        }
     }
 }
