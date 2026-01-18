@@ -29,23 +29,6 @@ public class StageColor : MonoBehaviour
         switch(_colorControlNumber % 2)
         {
             case 0:
-                _white = true;
-                _black = false;
-                for (int i = 0; i < _monoParentColor.Length; i++)
-                {
-                    if (_monoParentColor[i].sprite == _whiteBlock)
-                    {
-                        _monoParentColor[i].sprite = _blackBlock;
-                    }
-                    else
-                    {
-                        _monoParentColor[i].sprite = _whiteBlock;
-                    }
-                }
-                _blackDeleteParent.SetActive(true);
-                _whiteDeleteParent.SetActive(false);
-            break;
-            case 1:
                 _black = true;
                 _white = false;
                 for (int i = 0; i < _monoParentColor.Length; i++)
@@ -61,6 +44,23 @@ public class StageColor : MonoBehaviour
                 }
                 _blackDeleteParent.SetActive(false);
                 _whiteDeleteParent.SetActive(true);
+            break;
+            case 1:
+                _white = true;
+                _black = false;
+                for (int i = 0; i < _monoParentColor.Length; i++)
+                {
+                    if (_monoParentColor[i].sprite == _whiteBlock)
+                    {
+                        _monoParentColor[i].sprite = _blackBlock;
+                    }
+                    else
+                    {
+                        _monoParentColor[i].sprite = _whiteBlock;
+                    }
+                }
+                _blackDeleteParent.SetActive(true);
+                _whiteDeleteParent.SetActive(false);
             break;
         }
     }

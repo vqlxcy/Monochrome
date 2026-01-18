@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
     int _stageNumber;
     public bool _isGoal;
     public bool _isButtonClicked = false;
+    public bool _isPlayerDeath;
 
     void Awake()
     {
@@ -59,7 +60,7 @@ public class GameController : MonoBehaviour
 
             if (_isGoal)
             {
-                SceneManager.LoadScene(_firstStage);
+                SceneManager.LoadScene(_secondStage);
             }
 
             if (_stageNumber >= 2)
@@ -76,6 +77,11 @@ public class GameController : MonoBehaviour
                 else
                 {
                     _firstStageGoalInstanceButton.SetActive(false);
+                }
+
+                if (_isGoal)
+                {
+                    SceneManager.LoadScene(_thirdStage); ;
                 }
             }
         }
