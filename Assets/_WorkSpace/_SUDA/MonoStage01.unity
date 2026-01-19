@@ -1118,6 +1118,7 @@ MonoBehaviour:
   jumpForce: 8
   groundCheck: {fileID: 123412658}
   groundCheckSize: {x: 0.8, y: 0.1}
+  goalTag: Goal
 --- !u!61 &80247085
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4815,6 +4816,13 @@ MonoBehaviour:
   _firstStage: MonoStage01
   _secondStage: MonoStage02
   _thirdStage: 
+  _firstStageColorControlLimit: 0
+  _secondStageColorControlLimit: 0
+  _thirdStageColorControlLimit: 0
+  _firstStageRotateLimit: 0
+  _secondStageRotateLimit: 0
+  _thirdStageRotateLimit: 0
+  _player: {fileID: 0}
   _firstStageGoalInstanceButton: {fileID: 0}
   _isGoal: 0
   _isButtonClicked: 0
@@ -4838,6 +4846,7 @@ MonoBehaviour:
   _blackBlock: {fileID: 0}
   _whiteBlock: {fileID: 0}
   _colorControlNumber: 0
+  _colorControlCount: 0
 --- !u!114 &1009306545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4852,6 +4861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StageRotation
   _stage: {fileID: 0}
   _rotationAngle: 0
+  _stageRotateCount: 0
 --- !u!1 &1037575149
 GameObject:
   m_ObjectHideFlags: 0
@@ -6995,7 +7005,7 @@ GameObject:
   - component: {fileID: 1545214825}
   m_Layer: 3
   m_Name: Block
-  m_TagString: Untagged
+  m_TagString: WhiteMove
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7145,7 +7155,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &1558059148
 GameObject:
   m_ObjectHideFlags: 0
