@@ -17,6 +17,12 @@ public class GameController : MonoBehaviour
     [SerializeField]
     string _thirdStage;
     [SerializeField]
+    int _firstStageColorControlLimit;
+    [SerializeField]
+    int _secondStageColorControlLimit;
+    [SerializeField]
+    int _thirdStageColorControlLimit;
+    [SerializeField]
     GameObject _player;
     [SerializeField]
     GameObject _firstStageGoalInstanceButton;
@@ -102,14 +108,17 @@ public class GameController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == _firstStage)
         {
             _stageNumber = 1;
+            _colorControlLimit = _firstStageColorControlLimit;
         }
         else if (SceneManager.GetActiveScene().name == _secondStage)
         {
             _stageNumber = 2;
+            _colorControlLimit = _secondStageColorControlLimit;
         }
         else if (SceneManager.GetActiveScene().name == _thirdStage)
         {
             _stageNumber = 3;
+            _colorControlLimit = _thirdStageColorControlLimit;
         }
         else
         {
