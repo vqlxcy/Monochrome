@@ -37,6 +37,7 @@ public class GameController : MonoBehaviour
     int _stageRotateLimit;
     int _stageNumber;
     Vector3 _savePlayerPosition;
+    Vector3 _saveWhiteMovePosition;
     GameObject _whiteMoveBlock;
 
     public bool _isGoal;
@@ -69,6 +70,11 @@ public class GameController : MonoBehaviour
     {
         if (_stageNumber >= 1)
         {
+            if (_sc._colorControlNumber % 2 == 0)
+            {
+                _whiteMoveBlock.transform.position = _saveWhiteMovePosition;
+            }
+
             if (Input.GetKeyDown(KeyCode.Return) && _sc._colorControlCount <= _colorControlLimit)
             {
                 if (_sc._colorControlNumber % 2 == 0)
@@ -78,6 +84,7 @@ public class GameController : MonoBehaviour
                 else if (_sc._colorControlNumber % 2 == 1)
                 {
                     _player.transform.position = _savePlayerPosition;
+                    _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
                 }
                 _sc._colorControlNumber++;
 
