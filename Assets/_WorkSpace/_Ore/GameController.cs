@@ -129,6 +129,9 @@ public class GameController : MonoBehaviour
         _sc._colorControlCount = 0;
         _player = GameObject.FindGameObjectWithTag("Player");
         _whiteMoveBlock = GameObject.FindGameObjectWithTag("WhiteMove");
+
+        _saveWhiteMovePosition = _whiteMoveBlock.transform.position;        
+
         if (SceneManager.GetActiveScene().name == _firstStage)
         {
             _stageNumber = 1;
