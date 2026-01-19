@@ -17,9 +17,15 @@ public class GameController : MonoBehaviour
     [SerializeField]
     string _thirdStage;
     [SerializeField]
+    GameObject _player;
+    [SerializeField]
     GameObject _firstStageGoalInstanceButton;
 
+    int _colorControlLimit;
     int _stageNumber;
+    Vector3 _savePlayerPosition;
+    GameObject _whiteMoveBlock;
+
     public bool _isGoal;
     public bool _isButtonClicked = false;
     public bool _isPlayerDeath;
@@ -50,12 +56,13 @@ public class GameController : MonoBehaviour
     {
         if (_stageNumber >= 1)
         {
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetKeyDown(KeyCode.Return) && _sc._colorControlCount <= _colorControlLimit)
             {
                 _sc._colorControlNumber++;
 
                 _sc.BlockColorChange();
                 _sc.BGColorChange();
+                _sc._colorControlCount++;
             }
 
             if (_isGoal)
@@ -90,6 +97,8 @@ public class GameController : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         _isGoal = false;
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _whiteMoveBlock = GameObject.FindGameObjectWithTag("WhiteMove");
         if (SceneManager.GetActiveScene().name == _firstStage)
         {
             _stageNumber = 1;
