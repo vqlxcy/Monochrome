@@ -22,9 +22,10 @@ public class PlayerMovement : MonoBehaviour
     private float moveInput;
     private bool isGoal = false;
 
-    // アニメーションパラメータ名
-    private readonly int _isWalkingHash = Animator.StringToHash("isWalking");
-    private readonly int _isGroundedHash = Animator.StringToHash("isGrounded");
+    // アニメーション状態名
+    private const string ANIM_IDLE = "Idle";
+    private const string ANIM_WALK = "Walk";
+    private const string ANIM_JUMP = "Jump";
 
     void Awake()
     {
@@ -110,9 +111,21 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_animator == null) return;
 
-        // パラメータを更新
-        _animator.SetBool(_isWalkingHash, Mathf.Abs(moveInput) > 0.01f);
-        _animator.SetBool(_isGroundedHash, isGrounded);
+        // ジャンプ中（空中）
+        if (!isGrounded)
+        {
+            _animator.Play(ANIM_JUMP);
+        }
+        // 動いているとき
+        else if (Mathf.Abs(moveInput) > 0.01f)
+        {
+            _animator.Play(ANIM_WALK);
+        }
+        // 動いていないとき
+        else
+        {
+            _animator.Play(ANIM_IDLE);
+        }
     }
 
     // ゴール判定
