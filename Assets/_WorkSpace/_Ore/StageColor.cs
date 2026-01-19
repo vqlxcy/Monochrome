@@ -16,6 +16,7 @@ public class StageColor : MonoBehaviour
     Sprite _whiteBlock;
 
     public int _colorControlNumber = 0;
+    public int _colorControlCount;
 
     SpriteRenderer[] _monoParentColor;
     SpriteRenderer[] _monoParentBGColor;
@@ -96,7 +97,7 @@ public class StageColor : MonoBehaviour
                     }
                     else if (_monoParentBGColor[i].color == new Color(1, 1, 1)) 
                     {
-                        _monoParentBGColor[i].color = new Color(0, 0, 0);
+                        _monoParentBGColor[i].color = new Color(0, 0, 0);   
                     }
                 }
             break;
