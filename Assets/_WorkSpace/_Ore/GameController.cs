@@ -130,7 +130,8 @@ public class GameController : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("Player");
         _whiteMoveBlock = GameObject.FindGameObjectWithTag("WhiteMove");
 
-        _saveWhiteMovePosition = _whiteMoveBlock.transform.position;        
+        _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
+        _savePlayerPosition = _player.transform.position;
 
         if (SceneManager.GetActiveScene().name == _firstStage)
         {
