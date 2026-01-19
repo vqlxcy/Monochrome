@@ -23,8 +23,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isGoal = false;
 
     // アニメーションパラメータ名
-    private readonly int _isWalkingHash = Animator.StringToHash("isWalking");
-    private readonly int _isJumpingHash = Animator.StringToHash("isJumping");
+    private readonly int _isWalkingHash = Animator.StringToHash("Walk");
+    private readonly int _isJumpingHash = Animator.StringToHash("Jump");
 
     void Awake()
     {
