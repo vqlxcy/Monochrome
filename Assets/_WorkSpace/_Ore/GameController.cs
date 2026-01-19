@@ -71,6 +71,14 @@ public class GameController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return) && _sc._colorControlCount <= _colorControlLimit)
             {
+                if (_sc._colorControlNumber % 2 == 0)
+                {
+                    _savePlayerPosition = _player.transform.position;
+                }
+                else if (_sc._colorControlNumber % 2 == 1)
+                {
+                    _player.transform.position = _savePlayerPosition;
+                }
                 _sc._colorControlNumber++;
 
                 _sc.BlockColorChange();
