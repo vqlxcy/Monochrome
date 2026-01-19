@@ -16,10 +16,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private string goalTag = "Goal";
 
     private Rigidbody2D _rb;
+    private Animator _animator;
     private GameController _gameController;
     private bool isGrounded;
     private float moveInput;
     private bool isGoal = false;
+
+    // アニメーションパラメータ名
+    private readonly int _idleHash = Animator.StringToHash("Idle");
+    private readonly int _walkHash = Animator.StringToHash("Walk");
+    private readonly int _jumpHash = Animator.StringToHash("Jump");
 
     void Awake()
     {
@@ -33,6 +39,12 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+
+        if (_animator == null)
+        {
+            Debug.LogError("Animatorが見つかりません！");
+        }
     }
 
     void Update()
@@ -59,10 +71,16 @@ public class PlayerMovement : MonoBehaviour
         {
             Jump();
         }
+
+        // アニメーション更新
+        UpdateAnimation();
     }
 
     void FixedUpdate()
     {
+        // ゴール後は物理演算も停止
+        if (isGoal) return;
+
         // 移動
         _rb.linearVelocity = new Vector2(moveInput * moveSpeed, _rb.linearVelocity.y);
     }
@@ -89,10 +107,43 @@ public class PlayerMovement : MonoBehaviour
         _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, jumpForce);
     }
 
+    private void UpdateAnimation()
+    {
+        if (_animator == null) return;
+
+        // ジャンプ中（空中）
+        if (!isGrounded)
+        {
+            _animator.Play(_jumpHash);
+        }
+        // 歩いている
+        else if (Mathf.Abs(moveInput) > 0.01f)
+        {
+            _animator.Play(_walkHash);
+        }
+        // 停止中
+        else
+        {
+            _animator.Play(_idleHash);
+        }
+    }
+
     // ゴール判定
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(goalTag))
+        if (collision.CompareTag(goalTag) && !isGoal)
+        {
+            OnGoalReached();
+        }
+    }
+
+    private void OnGoalReached()
+    {
+        isGoal = true;
+        _rb.linearVelocity = Vector2.zero; // 移動を停止
+
+        // GameControllerのゴールフラグを立てる
+        if (_gameController != null)
         {
             _gameController._isGoal = true;
         }
