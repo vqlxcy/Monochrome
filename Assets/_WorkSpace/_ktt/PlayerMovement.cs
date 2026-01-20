@@ -27,8 +27,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isGoal = false;
 
     // アニメーションパラメータ名
-    private readonly int _isWalkingHash = Animator.StringToHash("isWalking");
-    private readonly int _isJumpingHash = Animator.StringToHash("isJumping");
+    private readonly int _isWalkingHash = Animator.StringToHash("Walk");
+    private readonly int _isJumpingHash = Animator.StringToHash("Jump");
 
     void Awake()
     {
@@ -52,7 +52,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (_audioSource == null)
         {
-            Debug.LogWarning("AudioSourceが見つかりません！SEを再生するにはAudioSourceコンポーネントを追加してください。");
+            Debug.LogWarning("AudioSourceが見つかりません！AudioSourceを追加します。");
+            _audioSource = gameObject.AddComponent<AudioSource>();
         }
     }
 
