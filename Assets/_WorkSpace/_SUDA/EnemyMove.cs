@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyMove: MonoBehaviour
+public class EnemyMove : MonoBehaviour
 {
     [Header("ターゲット")]
     public string playerTag = "Player";
@@ -25,6 +25,8 @@ public class EnemyMove: MonoBehaviour
     bool isGrounded;
     bool canJump = true;
 
+    static readonly int EnemyWalkHash = Animator.StringToHash("EnemyWalk");
+
     void Start()
     {
         var p = GameObject.FindGameObjectWithTag(playerTag);
@@ -34,6 +36,9 @@ public class EnemyMove: MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         col = GetComponent<Collider2D>();
+
+        rb.linearVelocity = Vector2.zero;
+        animator.SetBool(EnemyWalkHash, false);
     }
 
     void Update()
@@ -44,27 +49,32 @@ public class EnemyMove: MonoBehaviour
 
         CheckGround();
 
-        if (distance > detectDistance)
+        bool isWalking = false;
+
+        if (distance <= detectDistance)
+        {
+            float dir = Mathf.Sign(player.position.x - transform.position.x);
+
+            rb.linearVelocity = new Vector2(dir * moveSpeed, rb.linearVelocity.y);
+            isWalking = true;
+
+            if (dir > 0)
+                transform.localScale = new Vector3(-1, 1, 1);
+            else
+                transform.localScale = new Vector3(1, 1, 1);
+
+            if (distance < jumpDistance && isGrounded && canJump)
+            {
+                Jump();
+            }
+        }
+        else
         {
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
-            animator.Play("EnemyIdle");
-            return;
+            isWalking = false;
         }
 
-        float dir = Mathf.Sign(player.position.x - transform.position.x);
-
-        rb.linearVelocity = new Vector2(dir * moveSpeed, rb.linearVelocity.y);
-        animator.Play("EnemyWalk");
-
-        if (dir > 0)
-            transform.localScale = new Vector3(-1, 1, 1);
-        else
-            transform.localScale = new Vector3(1, 1, 1);
-
-        if (distance < jumpDistance && isGrounded && canJump)
-        {
-            Jump();
-        }
+        animator.SetBool(EnemyWalkHash, isWalking);
     }
 
     void CheckGround()
@@ -87,18 +97,5 @@ public class EnemyMove: MonoBehaviour
     void ResetJump()
     {
         canJump = true;
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        if (col == null) col = GetComponent<Collider2D>();
-        if (col == null) return;
-
-        Bounds b = col.bounds;
-        Vector2 origin = new Vector2(b.center.x, b.min.y - 0.05f);
-        Vector2 size = new Vector2(b.size.x * 0.9f, 0.1f);
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(origin, size);
     }
 }
