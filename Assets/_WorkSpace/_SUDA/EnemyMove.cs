@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyMove: MonoBehaviour
+public class EnemyMove : MonoBehaviour
 {
     [Header("ターゲット")]
     public string playerTag = "Player";
@@ -25,6 +25,8 @@ public class EnemyMove: MonoBehaviour
     bool isGrounded;
     bool canJump = true;
 
+    static readonly int IsWalkingHash = Animator.StringToHash("EnemyWalk");
+
     void Start()
     {
         var p = GameObject.FindGameObjectWithTag(playerTag);
@@ -47,14 +49,14 @@ public class EnemyMove: MonoBehaviour
         if (distance > detectDistance)
         {
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
-            animator.Play("EnemyIdle");
+            animator.SetBool(IsWalkingHash, false);
             return;
         }
 
         float dir = Mathf.Sign(player.position.x - transform.position.x);
 
         rb.linearVelocity = new Vector2(dir * moveSpeed, rb.linearVelocity.y);
-        animator.Play("EnemyWalk");
+        animator.SetBool(IsWalkingHash, true);
 
         if (dir > 0)
             transform.localScale = new Vector3(-1, 1, 1);
