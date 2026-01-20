@@ -15,16 +15,20 @@ public class PlayerMovement : MonoBehaviour
     [Header("ゴール設定")]
     [SerializeField] private string goalTag = "Goal";
 
+    [Header("サウンド設定")]
+    [SerializeField] private AudioClip jumpSE;
+
     private Rigidbody2D _rb;
     private Animator _animator;
+    private AudioSource _audioSource;
     private GameController _gameController;
     private bool isGrounded;
     private float moveInput;
     private bool isGoal = false;
 
     // アニメーションパラメータ名
-    private readonly int _isWalkingHash = Animator.StringToHash("Walk");
-    private readonly int _isJumpingHash = Animator.StringToHash("Jump");
+    private readonly int _isWalkingHash = Animator.StringToHash("isWalking");
+    private readonly int _isJumpingHash = Animator.StringToHash("isJumping");
 
     void Awake()
     {
@@ -39,10 +43,16 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
 
         if (_animator == null)
         {
             Debug.LogError("Animatorが見つかりません！");
+        }
+
+        if (_audioSource == null)
+        {
+            Debug.LogWarning("AudioSourceが見つかりません！SEを再生するにはAudioSourceコンポーネントを追加してください。");
         }
     }
 
@@ -104,6 +114,12 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, jumpForce);
+
+        // ジャンプSEを再生
+        if (_audioSource != null && jumpSE != null)
+        {
+            _audioSource.PlayOneShot(jumpSE);
+        }
     }
 
     private void UpdateAnimation()
