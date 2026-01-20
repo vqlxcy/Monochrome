@@ -1119,6 +1119,7 @@ MonoBehaviour:
   groundCheck: {fileID: 123412658}
   groundCheckSize: {x: 0.8, y: 0.1}
   goalTag: Goal
+  jumpSE: {fileID: 8300000, guid: b905bd7c12bd18f48a523139997d5cbb, type: 3}
 --- !u!61 &80247085
 BoxCollider2D:
   m_ObjectHideFlags: 0
