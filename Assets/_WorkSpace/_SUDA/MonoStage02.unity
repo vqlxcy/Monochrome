@@ -1206,6 +1206,7 @@ GameObject:
   - component: {fileID: 608426868}
   - component: {fileID: 608426867}
   - component: {fileID: 608426866}
+  - component: {fileID: 608426869}
   m_Layer: 0
   m_Name: GoalSilverCoin
   m_TagString: Untagged
@@ -1332,6 +1333,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &608426869
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608426865}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 92ca760f678b59b4eb43fd634849dabd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &627568311
 GameObject:
   m_ObjectHideFlags: 0
@@ -5643,6 +5666,7 @@ GameObject:
   - component: {fileID: 1738210523}
   - component: {fileID: 1738210522}
   - component: {fileID: 1738210524}
+  - component: {fileID: 1738210525}
   m_Layer: 0
   m_Name: SilverCoin
   m_TagString: Untagged
@@ -5769,6 +5793,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.61683893, y: 0.58352137}
   m_EdgeRadius: 0
+--- !u!95 &1738210525
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738210521}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 92ca760f678b59b4eb43fd634849dabd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1743245754
 GameObject:
   m_ObjectHideFlags: 0
