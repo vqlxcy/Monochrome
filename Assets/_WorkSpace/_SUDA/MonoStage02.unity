@@ -2384,6 +2384,7 @@ GameObject:
   - component: {fileID: 847453825}
   - component: {fileID: 847453824}
   - component: {fileID: 847453826}
+  - component: {fileID: 847453827}
   m_Layer: 0
   m_Name: BronzeCoin
   m_TagString: Untagged
@@ -2510,6 +2511,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.5668621, y: 0.566862}
   m_EdgeRadius: 0
+--- !u!95 &847453827
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847453823}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d01d73a356ec5d4aae3d75cbaa12741, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &849993150
 GameObject:
   m_ObjectHideFlags: 0
@@ -6890,6 +6913,7 @@ GameObject:
   - component: {fileID: 1952532217}
   - component: {fileID: 1952532216}
   - component: {fileID: 1952532215}
+  - component: {fileID: 1952532218}
   m_Layer: 0
   m_Name: GoalBronzeCoin
   m_TagString: Untagged
@@ -7016,6 +7040,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1952532218
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952532214}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d01d73a356ec5d4aae3d75cbaa12741, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2008749106
 GameObject:
   m_ObjectHideFlags: 0
