@@ -259,7 +259,8 @@ MonoBehaviour:
   playAgainButton: {fileID: 1981327736}
   backToTitleButton: {fileID: 700231326}
   audioSource: {fileID: 657719707}
-  buttonSE: {fileID: 8300000, guid: f57da9f951a235a4ea21daeef57f8287, type: 3}
+  buttonSE: {fileID: 8300000, guid: 63e69723c91291f4fb21761c20adf662, type: 3}
+  waitTime: 0.313
 --- !u!82 &657719707
 AudioSource:
   m_ObjectHideFlags: 0
