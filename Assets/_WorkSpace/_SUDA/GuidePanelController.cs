@@ -10,6 +10,11 @@ public class GuidePanelController : MonoBehaviour
 
     GameObject currentPanel;
 
+    [Header("SEê›íË")]
+    public AudioSource seSource;
+    public AudioClip openSE;
+    public AudioClip closeSE;
+
     void Start()
     {
         if (stage01Panel != null) stage01Panel.SetActive(false);
@@ -41,7 +46,21 @@ public class GuidePanelController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            currentPanel.SetActive(!currentPanel.activeSelf);
+            bool isOpening = !currentPanel.activeSelf;
+
+            currentPanel.SetActive(isOpening);
+
+            if (seSource != null)
+            {
+                if (isOpening && openSE != null)
+                {
+                    seSource.PlayOneShot(openSE);
+                }
+                else if (!isOpening && closeSE != null)
+                {
+                    seSource.PlayOneShot(closeSE);
+                }
+            }
         }
     }
 }
