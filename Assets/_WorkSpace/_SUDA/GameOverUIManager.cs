@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 
 public class GameOverUIManager : MonoBehaviour
 {
@@ -11,26 +12,32 @@ public class GameOverUIManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip buttonSE;
 
+    [Header("ëJà⁄Ç‹Ç≈ÇÃë“Çøéûä‘")]
+    public float waitTime = 0.3f; 
+
     private void Start()
     {
         retryButton.onClick.AddListener(() =>
         {
-            PlaySE();
-            SceneManager.LoadScene("MonoStage01");
+            StartCoroutine(PlaySEAndLoad("MonoStage01"));
         });
 
         backToButton.onClick.AddListener(() =>
         {
-            PlaySE();
-            SceneManager.LoadScene("MonoTitle");
+            StartCoroutine(PlaySEAndLoad("MonoTitle"));
         });
     }
 
-    void PlaySE()
+    IEnumerator PlaySEAndLoad(string sceneName)
     {
+        // SEçƒê∂
         if (audioSource != null && buttonSE != null)
         {
             audioSource.PlayOneShot(buttonSE);
         }
+
+        yield return new WaitForSeconds(waitTime);
+        
+        SceneManager.LoadScene(sceneName);
     }
 }
