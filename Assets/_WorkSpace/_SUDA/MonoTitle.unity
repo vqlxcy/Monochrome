@@ -1373,6 +1373,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1801865301954405536, guid: 72774be6cd53b5e4699fbbb58bdaf8e2, type: 3}
+      propertyPath: openPanelSE
+      value: 
+      objectReference: {fileID: 8300000, guid: d9be25faf470e844392a9583fb22856d, type: 3}
+    - target: {fileID: 1801865301954405536, guid: 72774be6cd53b5e4699fbbb58bdaf8e2, type: 3}
+      propertyPath: closePanelSE
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d5a67dc6602dc6448bdbe2bad0ea662, type: 3}
+    - target: {fileID: 1801865301954405536, guid: 72774be6cd53b5e4699fbbb58bdaf8e2, type: 3}
       propertyPath: bgmPercentText
       value: 
       objectReference: {fileID: 1847881210}

@@ -11,6 +11,10 @@ public class MonoAudioManager : MonoBehaviour
     [Header("BGM AudioSource")]
     public AudioSource bgmSource;
 
+    [Header("UI SE Clips")]
+    public AudioClip openPanelSE;
+    public AudioClip closePanelSE;
+
     [Header("Volume Setting UI")]
     public GameObject volumePanel;
     public Slider bgmSlider;
@@ -22,7 +26,7 @@ public class MonoAudioManager : MonoBehaviour
     bool isPanelOpen = false;
     string currentSceneName = "";
 
-    const float DEFAULT_VOLUME = 0.5f; 
+    const float DEFAULT_VOLUME = 0.5f;
 
     [System.Serializable]
     public class SceneBGM
@@ -35,12 +39,11 @@ public class MonoAudioManager : MonoBehaviour
     {
         if (Instance != null)
         {
-            Destroy(transform.root.gameObject); 
+            Destroy(transform.root.gameObject);
             return;
         }
 
         Instance = this;
-
         DontDestroyOnLoad(transform.root.gameObject);
     }
 
@@ -80,7 +83,23 @@ public class MonoAudioManager : MonoBehaviour
         isPanelOpen = !isPanelOpen;
         volumePanel.SetActive(isPanelOpen);
 
+        // SE 再生（BGM用 AudioSource を使い回す）
+        if (isPanelOpen)
+        {
+            PlaySE(openPanelSE);
+        }
+        else
+        {
+            PlaySE(closePanelSE);
+        }
+
         Time.timeScale = isPanelOpen ? 0f : 1f;
+    }
+
+    void PlaySE(AudioClip clip)
+    {
+        if (clip == null || bgmSource == null) return;
+        bgmSource.PlayOneShot(clip);
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -107,7 +126,6 @@ public class MonoAudioManager : MonoBehaviour
             }
         }
 
-        Debug.LogWarning("このシーンのBGMが設定されていません: " + sceneName);
     }
 
     void OnSliderChanged(float value)
