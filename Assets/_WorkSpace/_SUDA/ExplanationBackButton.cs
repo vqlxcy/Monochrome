@@ -1,16 +1,25 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExplanationBackButton : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [Header("クリックSE")]
+    public AudioClip clickSE;
 
-    // Update is called once per frame
-    void Update()
+    [Header("戻るシーン名")]
+    public string backSceneName = "MonoTitle";
+
+    public void OnClickBackButton()
     {
-        
+        if (clickSE != null && MonoAudioManager.Instance != null)
+        {
+            var audio = MonoAudioManager.Instance.bgmSource;
+            if (audio != null)
+            {
+                audio.PlayOneShot(clickSE);
+            }
+        }
+
+        SceneManager.LoadScene(backSceneName);
     }
 }
