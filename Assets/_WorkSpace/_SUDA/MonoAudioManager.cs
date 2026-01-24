@@ -14,7 +14,7 @@ public class MonoAudioManager : MonoBehaviour
     [Header("Volume Setting UI")]
     public GameObject volumePanel;
     public Slider bgmSlider;
-    public TMP_Text bgmPercentText;   
+    public TMP_Text bgmPercentText;
 
     [Header("Scene BGM List")]
     public List<SceneBGM> sceneBGMList = new List<SceneBGM>();
@@ -35,12 +35,13 @@ public class MonoAudioManager : MonoBehaviour
     {
         if (Instance != null)
         {
-            Destroy(gameObject);
+            Destroy(transform.root.gameObject); 
             return;
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+
+        DontDestroyOnLoad(transform.root.gameObject);
     }
 
     void Start()
@@ -78,6 +79,7 @@ public class MonoAudioManager : MonoBehaviour
     {
         isPanelOpen = !isPanelOpen;
         volumePanel.SetActive(isPanelOpen);
+
         Time.timeScale = isPanelOpen ? 0f : 1f;
     }
 
