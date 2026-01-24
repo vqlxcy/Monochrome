@@ -2,25 +2,27 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using TMPro;
 
 public class MonoAudioManager : MonoBehaviour
 {
     public static MonoAudioManager Instance;
 
-    [Header("AudioSource")]
+    [Header("BGM AudioSource")]
     public AudioSource bgmSource;
-    public AudioSource seSource;
 
     [Header("Volume Setting UI")]
     public GameObject volumePanel;
     public Slider bgmSlider;
-    public Slider seSlider;
+    public TMP_Text bgmPercentText;   
 
     [Header("Scene BGM List")]
     public List<SceneBGM> sceneBGMList = new List<SceneBGM>();
 
     bool isPanelOpen = false;
     string currentSceneName = "";
+
+    const float DEFAULT_VOLUME = 0.5f; 
 
     [System.Serializable]
     public class SceneBGM
@@ -43,17 +45,14 @@ public class MonoAudioManager : MonoBehaviour
 
     void Start()
     {
-        float bgmVol = PlayerPrefs.GetFloat("BGM_VOLUME", 0.7f);
-        float seVol = PlayerPrefs.GetFloat("SE_VOLUME", 0.7f);
+        float bgmVol = PlayerPrefs.GetFloat("BGM_VOLUME", DEFAULT_VOLUME);
 
         bgmSource.volume = bgmVol;
-        seSource.volume = seVol;
-
         bgmSlider.value = bgmVol;
-        seSlider.value = seVol;
 
-        bgmSlider.onValueChanged.AddListener(SetBGMVolume);
-        seSlider.onValueChanged.AddListener(SetSEVolume);
+        UpdateVolumeText(bgmVol);
+
+        bgmSlider.onValueChanged.AddListener(OnSliderChanged);
 
         volumePanel.SetActive(false);
 
@@ -109,20 +108,16 @@ public class MonoAudioManager : MonoBehaviour
         Debug.LogWarning("Ç±ÇÃÉVÅ[ÉìÇÃBGMÇ™ê›íËÇ≥ÇÍÇƒÇ¢Ç‹ÇπÇÒ: " + sceneName);
     }
 
-    public void SetBGMVolume(float value)
+    void OnSliderChanged(float value)
     {
         bgmSource.volume = value;
         PlayerPrefs.SetFloat("BGM_VOLUME", value);
+        UpdateVolumeText(value);
     }
 
-    public void SetSEVolume(float value)
+    void UpdateVolumeText(float value)
     {
-        seSource.volume = value;
-        PlayerPrefs.SetFloat("SE_VOLUME", value);
-    }
-
-    public void PlaySE(AudioClip clip)
-    {
-        seSource.PlayOneShot(clip);
+        int percent = Mathf.RoundToInt(value * 100f);
+        bgmPercentText.text = percent + "%";
     }
 }
