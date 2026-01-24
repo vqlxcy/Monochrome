@@ -83,7 +83,6 @@ public class MonoAudioManager : MonoBehaviour
         isPanelOpen = !isPanelOpen;
         volumePanel.SetActive(isPanelOpen);
 
-        // SE 再生（BGM用 AudioSource を使い回す）
         if (isPanelOpen)
         {
             PlaySE(openPanelSE);
