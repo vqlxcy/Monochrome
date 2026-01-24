@@ -2258,7 +2258,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Space\u30AD\u30FC\u62BC\u3057\u305F\u3089\u767D\u306E\u4E16\u754C\u306B\u5165\u308C\u305F\uFF01"
+  m_text: "Enter\u30AD\u30FC\u62BC\u3057\u305F\u3089\u767D\u306E\u4E16\u754C\u306B\u5165\u308C\u305F\uFF01"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e469b62c8f5af743b59f7163e2eae65, type: 2}
   m_sharedMaterial: {fileID: -6811695862955819620, guid: 6e469b62c8f5af743b59f7163e2eae65, type: 2}
