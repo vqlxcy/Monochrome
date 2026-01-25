@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -31,11 +33,18 @@ public class GameController : MonoBehaviour
     [SerializeField]
     GameObject _player;
     [SerializeField]
-    GameObject _firstStageGoalInstanceButton;
+    GameObject _secondStageGoalInstanceButton;
+    [SerializeField]
+    GameObject _goal;
+    [SerializeField]
+    GameObject[] _coins;
 
+    List<GameObject> _useCoinList = new();
+    List<GameObject> _coinList = new List<GameObject>();
     int _colorControlLimit;
     int _stageRotateLimit;
     int _stageNumber;
+    int _randomInt;
     Vector3 _savePlayerPosition;
     Vector3 _saveWhiteMovePosition;
     GameObject _whiteMoveBlock;
@@ -108,18 +117,29 @@ public class GameController : MonoBehaviour
 
                 if (_isButtonClicked)
                 {
-                    _firstStageGoalInstanceButton.SetActive(true);
+                    _goal.SetActive(true);
                 }
                 else
                 {
-                    _firstStageGoalInstanceButton.SetActive(false);
+                    _goal.SetActive(false);
                 }
 
                 if (_isGoal)
                 {
-                    SceneManager.LoadScene(_thirdStage); ;
+                    SceneManager.LoadScene(_thirdStage);
                 }
             }
+        }
+    }
+
+    void RandomCoinSelect()
+    {
+        _randomInt = Random.Range(0, _useCoinList.Count + 1);
+        _coinList.Add(_useCoinList[_randomInt]);
+        _useCoinList.RemoveAt(_randomInt);
+        if (_useCoinList.Count != 0)
+        {
+            RandomCoinSelect();
         }
     }
 
@@ -129,6 +149,11 @@ public class GameController : MonoBehaviour
         _sc._colorControlCount = 0;
         _player = GameObject.FindGameObjectWithTag("Player");
         _whiteMoveBlock = GameObject.FindGameObjectWithTag("WhiteMove");
+
+        for (int i = 0; i < _coins.Length; i++)
+        {
+            _coinList[i] = _coins[i];
+        }
 
         _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
         _savePlayerPosition = _player.transform.position;
@@ -144,12 +169,14 @@ public class GameController : MonoBehaviour
             _stageNumber = 2;
             _colorControlLimit = _secondStageColorControlLimit;
             _stageRotateLimit = _secondStageRotateLimit;
+            RandomCoinSelect();
         }
         else if (SceneManager.GetActiveScene().name == _thirdStage)
         {
             _stageNumber = 3;
             _colorControlLimit = _thirdStageColorControlLimit;
             _secondStageRotateLimit = _thirdStageRotateLimit;
+            RandomCoinSelect();
         }
         else
         {
