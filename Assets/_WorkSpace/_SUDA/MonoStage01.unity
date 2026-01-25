@@ -994,7 +994,7 @@ GameObject:
   - component: {fileID: 80247083}
   - component: {fileID: 80247085}
   - component: {fileID: 80247086}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1119,6 +1119,8 @@ MonoBehaviour:
   groundCheck: {fileID: 123412658}
   groundCheckSize: {x: 0.8, y: 0.1}
   goalTag: Goal
+  enemyTag: Enemy
+  enemyBounceForce: 8
   jumpSE: {fileID: 8300000, guid: b905bd7c12bd18f48a523139997d5cbb, type: 3}
 --- !u!61 &80247085
 BoxCollider2D:
@@ -1377,7 +1379,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 123412658}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CheckLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
