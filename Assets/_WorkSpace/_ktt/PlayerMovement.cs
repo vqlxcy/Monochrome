@@ -15,6 +15,10 @@ public class PlayerMovement : MonoBehaviour
     [Header("ƒS[ƒ‹Ý’è")]
     [SerializeField] private string goalTag = "Goal";
 
+    [Header("“GÝ’è")]
+    [SerializeField] private string enemyTag = "Enemy";
+    [SerializeField] private float enemyBounceForce = 8f; // “G‚ð“¥‚ñ‚¾Žž‚Ì’µ‚Ë•Ô‚è
+
     [Header("ƒTƒEƒ“ƒhÝ’è")]
     [SerializeField] private AudioClip jumpSE;
 
@@ -142,6 +146,42 @@ public class PlayerMovement : MonoBehaviour
         {
             OnGoalReached();
         }
+    }
+
+    // “G‚ð“¥‚Þ”»’è
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag(enemyTag))
+        {
+            // ƒvƒŒƒCƒ„[‚ª“G‚Ìã‚©‚ç“–‚½‚Á‚½‚©”»’è
+            if (IsStompingEnemy(collision))
+            {
+                StompEnemy(collision.gameObject);
+            }
+        }
+    }
+
+    private bool IsStompingEnemy(Collision2D collision)
+    {
+        // Õ“Ë“_‚Ì‘Š‘Î“I‚ÈˆÊ’u‚ðŠm”F
+        foreach (ContactPoint2D contact in collision.contacts)
+        {
+            // ƒvƒŒƒCƒ„[‚ª“G‚æ‚èã‚É‚¢‚ÄA‰ºŒü‚«‚ÉˆÚ“®‚µ‚Ä‚¢‚éê‡
+            if (contact.normal.y > 0.5f && _rb.linearVelocity.y <= 0)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void StompEnemy(GameObject enemy)
+    {
+        // “G‚ð”j‰ó
+        Destroy(enemy);
+
+        // “¥‚ñ‚¾Žž‚Ì’µ‚Ë•Ô‚è
+        _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, enemyBounceForce);
     }
 
     private void OnGoalReached()
