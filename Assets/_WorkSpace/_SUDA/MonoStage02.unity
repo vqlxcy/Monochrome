@@ -524,7 +524,7 @@ MonoBehaviour:
   goalTag: Goal
   enemyTag: Enemy
   enemyBounceForce: 8
-  jumpSE: {fileID: 8300000, guid: b905bd7c12bd18f48a523139997d5cbb, type: 3}
+  jumpSE: {fileID: 8300000, guid: d53b35f7e5efa394798821fb1bd6cf46, type: 3}
 --- !u!212 &121522433
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -591,7 +591,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121522428}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.71, y: -3.43, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7798,6 +7798,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 860836392}
+  - {fileID: 121522434}
   - {fileID: 1887125471}
   - {fileID: 206398031}
   - {fileID: 2045760821}
@@ -7812,4 +7813,3 @@ SceneRoots:
   - {fileID: 901256753}
   - {fileID: 1619721745}
   - {fileID: 1123820200}
-  - {fileID: 121522434}

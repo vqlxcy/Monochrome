@@ -1121,7 +1121,7 @@ MonoBehaviour:
   goalTag: Goal
   enemyTag: Enemy
   enemyBounceForce: 8
-  jumpSE: {fileID: 8300000, guid: b905bd7c12bd18f48a523139997d5cbb, type: 3}
+  jumpSE: {fileID: 8300000, guid: d53b35f7e5efa394798821fb1bd6cf46, type: 3}
 --- !u!61 &80247085
 BoxCollider2D:
   m_ObjectHideFlags: 0
