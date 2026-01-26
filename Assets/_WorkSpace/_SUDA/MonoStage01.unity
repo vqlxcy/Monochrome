@@ -1115,7 +1115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
-  jumpForce: 8
+  jumpForce: 10
   groundCheck: {fileID: 123412658}
   groundCheckSize: {x: 0.8, y: 0.1}
   goalTag: Goal
