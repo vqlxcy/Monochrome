@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("サウンド設定")]
     [SerializeField] private AudioClip jumpSE;
+    [SerializeField] private AudioClip goalSE;
 
     private Rigidbody2D _rb;
     private Animator _animator;
@@ -144,6 +145,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.CompareTag(goalTag) && !isGoal)
         {
+            // ゴールSE再生
+            if (_audioSource != null && goalSE != null)
+            {
+                _audioSource.PlayOneShot(goalSE);
+            }
             OnGoalReached();
         }
     }
