@@ -10,11 +10,7 @@ public class GameController : MonoBehaviour
     StageRotation _sr;
 
     [SerializeField]
-    string _firstStage;
-    [SerializeField]
-    string _secondStage;
-    [SerializeField]
-    string _thirdStage;
+    string _nextStage;
     [SerializeField,Header("色変更の回数制限(ステージ毎)")]
     int _firstStageColorControlLimit;
     [SerializeField]
@@ -37,6 +33,8 @@ public class GameController : MonoBehaviour
     GameObject[] _coins;
     [SerializeField]
     Transform[] _coinPos;
+    [SerializeField]
+    Transform[] _interfaceCoinPos; 
 
     List<GameObject> _useCoinList = new();
     public List<GameObject> _coinList = new List<GameObject>();
@@ -95,7 +93,7 @@ public class GameController : MonoBehaviour
 
             if (_isGoal)
             {
-                SceneManager.LoadScene(_secondStage);
+                SceneManager.LoadScene(_nextStage);
             }
 
             if (_stageNumber >= 2)
@@ -108,7 +106,7 @@ public class GameController : MonoBehaviour
 
                 if (_coinList[0] == null)
                 {
-                    _buttonSpawn = true;
+                    SceneManager.LoadScene(_nextStage);
                 }
 
                 if (_buttonSpawn)
@@ -127,7 +125,7 @@ public class GameController : MonoBehaviour
 
                 if (_isGoal)
                 {
-                    SceneManager.LoadScene(_thirdStage);
+                    SceneManager.LoadScene(_nextStage);
                 }
             }
         }
@@ -165,20 +163,20 @@ public class GameController : MonoBehaviour
         _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
         _savePlayerPosition = _player.transform.position;
 
-        if (SceneManager.GetActiveScene().name == _firstStage)
+        if (SceneManager.GetActiveScene().name == "MonoStage01")
         {
             _stageNumber = 1;
             _colorControlLimit = _firstStageColorControlLimit;
             _stageRotateLimit = _firstStageRotateLimit;
         }
-        else if (SceneManager.GetActiveScene().name == _secondStage)
+        else if (SceneManager.GetActiveScene().name == "MonoStage02")
         {
             _stageNumber = 2;
             _colorControlLimit = _secondStageColorControlLimit;
             _stageRotateLimit = _secondStageRotateLimit;
             RandomCoinSelect();
         }
-        else if (SceneManager.GetActiveScene().name == _thirdStage)
+        else if (SceneManager.GetActiveScene().name == "MonoStage03")
         {
             _stageNumber = 3;
             _colorControlLimit = _thirdStageColorControlLimit;
