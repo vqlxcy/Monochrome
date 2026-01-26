@@ -20,14 +20,15 @@ public class GameController : MonoBehaviour
     [SerializeField]
     GameObject _goal;
     [SerializeField]
-    GameObject[] _coins;
+    GameObject[] _goalCoins;
     [SerializeField]
-    Transform[] _coinPos;
+    Transform[] _goalCoinPos;
     [SerializeField]
     Transform[] _interfaceCoinPos;
 
     List<GameObject> _useCoinList = new();
-    public List<GameObject> _coinList = new List<GameObject>();
+    public List<GameObject> _goalCoinList = new List<GameObject>();
+    List<GameObject> _collisionCoinList = new List<GameObject>();
 
 
     int _stageNumber;
@@ -52,10 +53,11 @@ public class GameController : MonoBehaviour
         _isGoal = false;
         _sc._colorControlCount = 0;
 
-        for (int i = 0; i < _coins.Length; i++)
+        for (int i = 0; i < _goalCoins.Length; i++)
         {
-            _useCoinList.Add(_coins[i]);
-            Instantiate(_useCoinList[i], _coinPos[i].position, Quaternion.identity);
+            _useCoinList.Add(_goalCoins[i]);
+            GameObject obj = Instantiate(_useCoinList[i], _goalCoinPos[i].position, Quaternion.identity);
+            _collisionCoinList.Add(obj);
         }
 
         _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
@@ -121,14 +123,14 @@ public class GameController : MonoBehaviour
                 _sr._stageRotateCount++;
             }
 
-            if (_coinList[0] == null)
+            if (_goalCoinList[0] == null)
             {
                 SceneManager.LoadScene(_nextStage);
             }
 
             if (_buttonSpawn)
             {
-
+                
             }
 
             if (_isGoal)
@@ -145,7 +147,7 @@ public class GameController : MonoBehaviour
         //本当はFisher–Yatesアルゴリズムを使ったほうがいい(やってることはほぼ一緒)
         #endregion
         _randomInt = Random.Range(0, _useCoinList.Count);
-        _coinList.Add(_useCoinList[_randomInt]);
+        _goalCoinList.Add(_useCoinList[_randomInt]);
         _useCoinList.RemoveAt(_randomInt);
         if (_useCoinList.Count != 0)
         {
