@@ -131,15 +131,6 @@ public class GameController : MonoBehaviour
 
             }
 
-            if (_isButtonClicked)
-            {
-                _goal.SetActive(true);
-            }
-            else
-            {
-                _goal.SetActive(false);
-            }
-
             if (_isGoal)
             {
                 SceneManager.LoadScene(_nextStage);
