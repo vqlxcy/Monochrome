@@ -153,7 +153,7 @@ public class GameController : MonoBehaviour
         //https://www.pandanoir.info/entry/2013/03/04/193704
         //本当はFisher–Yatesアルゴリズムを使ったほうがいい(やってることはほぼ一緒)
         #endregion
-        _randomInt = Random.Range(0, _useCoinList.Count + 1);
+        _randomInt = Random.Range(0, _useCoinList.Count);
         _coinList.Add(_useCoinList[_randomInt]);
         _useCoinList.RemoveAt(_randomInt);
         if (_useCoinList.Count != 0)
