@@ -518,7 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
-  jumpForce: 8
+  jumpForce: 14
   groundCheck: {fileID: 1586260258}
   groundCheckSize: {x: 0.8, y: 0.1}
   goalTag: Goal
@@ -1616,6 +1616,101 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1887125471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &648946188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 648946192}
+  - component: {fileID: 648946191}
+  - component: {fileID: 648946190}
+  - component: {fileID: 648946189}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &648946189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648946188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c56f5d390786a7459de0e3d67589961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageRotation
+  _stage: {fileID: 0}
+  _rotationAngle: 0
+  _stageRotateCount: 0
+--- !u!114 &648946190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648946188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df45b26feefe08408de6bec7d6f85ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameController
+  _firstStage: MonoStage01
+  _secondStage: MonoStage02
+  _thirdStage: 
+  _firstStageColorControlLimit: 3
+  _secondStageColorControlLimit: 0
+  _thirdStageColorControlLimit: 0
+  _firstStageRotateLimit: 0
+  _secondStageRotateLimit: 0
+  _thirdStageRotateLimit: 0
+  _player: {fileID: 0}
+  _firstStageGoalInstanceButton: {fileID: 0}
+  _isGoal: 0
+  _isButtonClicked: 0
+  _isPlayerDeath: 0
+--- !u!114 &648946191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648946188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feca5cbad0eae7746907f60ecf9bf749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageColor
+  _blackDeleteParent: {fileID: 0}
+  _whiteDeleteParent: {fileID: 0}
+  _monoParent: {fileID: 0}
+  _monoParentBG: {fileID: 0}
+  _blackBlock: {fileID: 0}
+  _whiteBlock: {fileID: 0}
+  _colorControlNumber: 0
+  _colorControlCount: 0
+--- !u!4 &648946192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648946188}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.10687, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &693241818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1747,7 +1842,7 @@ Transform:
   m_GameObject: {fileID: 693241818}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 39.5, y: 22.8, z: 0}
+  m_LocalPosition: {x: 39.5, y: 18.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2140,7 +2235,7 @@ Transform:
   m_GameObject: {fileID: 749971590}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 87.6, y: 22.8, z: 0}
+  m_LocalPosition: {x: 87.6, y: 18.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3515,7 +3610,7 @@ Transform:
   m_GameObject: {fileID: 999354188}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 46.5, y: 22.8, z: 0}
+  m_LocalPosition: {x: 46.5, y: 18.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7276,7 +7371,7 @@ Transform:
   m_GameObject: {fileID: 2015598013}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 80.2, y: 22.8, z: 0}
+  m_LocalPosition: {x: 80.2, y: 18.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7811,5 +7906,6 @@ SceneRoots:
   - {fileID: 1222945208}
   - {fileID: 1826719403}
   - {fileID: 901256753}
+  - {fileID: 648946192}
   - {fileID: 1619721745}
   - {fileID: 1123820200}
