@@ -18,8 +18,6 @@ public class GameController : MonoBehaviour
     [SerializeField]
     GameObject _player;
     [SerializeField]
-    GameObject _GoalInstanceButton;
-    [SerializeField]
     GameObject _goal;
     [SerializeField]
     GameObject[] _coins;
@@ -53,7 +51,6 @@ public class GameController : MonoBehaviour
         _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
         _isGoal = false;
         _sc._colorControlCount = 0;
-        _GoalInstanceButton.SetActive(false);
 
         for (int i = 0; i < _coins.Length; i++)
         {
@@ -96,13 +93,13 @@ public class GameController : MonoBehaviour
             if (_sc._colorControlNumber % 2 == 0)
             {
                 _savePlayerPosition = _player.transform.position;
-                _goal.SetActive(true);
+                _goal.SetActive(false);
             }
             else if (_sc._colorControlNumber % 2 == 1)
             {
                 _player.transform.position = _savePlayerPosition;
                 _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
-                _goal.SetActive(false);
+                _goal.SetActive(true);
             }
 
             _sc.BlockColorChange();
@@ -131,7 +128,7 @@ public class GameController : MonoBehaviour
 
             if (_buttonSpawn)
             {
-                _GoalInstanceButton.SetActive(true);
+
             }
 
             if (_isButtonClicked)
