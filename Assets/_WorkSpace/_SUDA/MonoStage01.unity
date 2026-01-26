@@ -4954,10 +4954,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
   _nextStage: MonoStage02
-  _colorControlLimit: 3
+  _colorControlLimit: 99
   _stageRotateLimit: 0
-  _player: {fileID: 0}
-  _GoalInstanceButton: {fileID: 0}
+  _player: {fileID: 80247080}
   _goal: {fileID: 1957136789}
   _coins: []
   _coinPos: []
