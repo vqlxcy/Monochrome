@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     string _nextStage;
-    [SerializeField,Header("色変更の回数制限")]
+    [SerializeField, Header("色変更の回数制限")]
     int _colorControlLimit;
     [SerializeField, Header("ステージ回転の回数制限")]
     int _stageRotateLimit;
@@ -26,12 +26,12 @@ public class GameController : MonoBehaviour
     [SerializeField]
     Transform[] _coinPos;
     [SerializeField]
-    Transform[] _interfaceCoinPos; 
+    Transform[] _interfaceCoinPos;
 
     List<GameObject> _useCoinList = new();
     public List<GameObject> _coinList = new List<GameObject>();
-    
-    
+
+
     int _stageNumber;
     int _randomInt;
     Vector3 _savePlayerPosition;
@@ -58,67 +58,64 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (_stageNumber >= 1)
+        if (_sc._colorControlNumber % 2 == 0)
+        {
+            _whiteMoveBlock.transform.position = _saveWhiteMovePosition;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return) && _sc._colorControlCount <= _colorControlLimit)
         {
             if (_sc._colorControlNumber % 2 == 0)
             {
-                _whiteMoveBlock.transform.position = _saveWhiteMovePosition;
+                _savePlayerPosition = _player.transform.position;
+            }
+            else if (_sc._colorControlNumber % 2 == 1)
+            {
+                _player.transform.position = _savePlayerPosition;
+                _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
             }
 
-            if (Input.GetKeyDown(KeyCode.Return) && _sc._colorControlCount <= _colorControlLimit)
-            {
-                if (_sc._colorControlNumber % 2 == 0)
-                {
-                    _savePlayerPosition = _player.transform.position;
-                }
-                else if (_sc._colorControlNumber % 2 == 1)
-                {
-                    _player.transform.position = _savePlayerPosition;
-                    _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
-                }
-                _sc._colorControlNumber++;
+            _sc.BlockColorChange();
+            _sc.BGColorChange();
+            _sc._colorControlNumber++;
+            _sc._colorControlCount++;
+        }
 
-                _sc.BlockColorChange();
-                _sc.BGColorChange();
-                _sc._colorControlCount++;
+        if (_isGoal)
+        {
+            SceneManager.LoadScene(_nextStage);
+        }
+
+        if (_stageNumber >= 2)
+        {
+            if (Input.GetKeyDown(KeyCode.R) && _sr._stageRotateCount <= _stageRotateLimit)
+            {
+                _sr.StageRotate();
+                _sr._stageRotateCount++;
+            }
+
+            if (_coinList[0] == null)
+            {
+                SceneManager.LoadScene(_nextStage);
+            }
+
+            if (_buttonSpawn)
+            {
+                _GoalInstanceButton.SetActive(true);
+            }
+
+            if (_isButtonClicked)
+            {
+                _goal.SetActive(true);
+            }
+            else
+            {
+                _goal.SetActive(false);
             }
 
             if (_isGoal)
             {
                 SceneManager.LoadScene(_nextStage);
-            }
-
-            if (_stageNumber >= 2)
-            {
-                if (Input.GetKeyDown(KeyCode.R) && _sr._stageRotateCount <= _stageRotateLimit)
-                {
-                    _sr.StageRotate();
-                    _sr._stageRotateCount++;
-                }
-
-                if (_coinList[0] == null)
-                {
-                    SceneManager.LoadScene(_nextStage);
-                }
-
-                if (_buttonSpawn)
-                {
-                    _GoalInstanceButton.SetActive(true);
-                }
-
-                if (_isButtonClicked)
-                {
-                    _goal.SetActive(true);
-                }
-                else
-                {
-                    _goal.SetActive(false);
-                }
-
-                if (_isGoal)
-                {
-                    SceneManager.LoadScene(_nextStage);
-                }
             }
         }
     }
