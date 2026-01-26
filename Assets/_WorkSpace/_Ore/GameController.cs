@@ -1,3 +1,4 @@
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,8 +6,6 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(StageRotation))]
 public class GameController : MonoBehaviour
 {
-    static GameController instance { get; set; }
-
     StageColor _sc;
     StageRotation _sr;
 
@@ -16,13 +15,13 @@ public class GameController : MonoBehaviour
     string _secondStage;
     [SerializeField]
     string _thirdStage;
-    [SerializeField,Header("�F�ύX�̉񐔐���(�X�e�[�W��)")]
+    [SerializeField,Header("色変更の回数制限(ステージ毎)")]
     int _firstStageColorControlLimit;
     [SerializeField]
     int _secondStageColorControlLimit;
     [SerializeField]
     int _thirdStageColorControlLimit;
-    [SerializeField, Header("�X�e�[�W��]�̉񐔐���(�X�e�[�W��)")]
+    [SerializeField, Header("ステージ回転の回数制限(ステージ毎)")]
     int _firstStageRotateLimit;
     [SerializeField]
     int _secondStageRotateLimit;
@@ -31,30 +30,31 @@ public class GameController : MonoBehaviour
     [SerializeField]
     GameObject _player;
     [SerializeField]
-    GameObject _firstStageGoalInstanceButton;
+    GameObject _GoalInstanceButton;
+    [SerializeField]
+    GameObject _goal;
+    [SerializeField]
+    GameObject[] _coins;
+    [SerializeField]
+    Transform[] _coinPos;
 
+    List<GameObject> _useCoinList = new();
+    public List<GameObject> _coinList = new List<GameObject>();
     int _colorControlLimit;
     int _stageRotateLimit;
     int _stageNumber;
+    int _randomInt;
     Vector3 _savePlayerPosition;
     Vector3 _saveWhiteMovePosition;
     GameObject _whiteMoveBlock;
 
     public bool _isGoal;
+    bool _buttonSpawn;
     public bool _isButtonClicked = false;
     public bool _isPlayerDeath;
 
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         _sc = GetComponent<StageColor>();
@@ -106,20 +106,45 @@ public class GameController : MonoBehaviour
                     _sr._stageRotateCount++;
                 }
 
+                if (_coinList[0] == null)
+                {
+                    _buttonSpawn = true;
+                }
+
+                if (_buttonSpawn)
+                {
+                    _GoalInstanceButton.SetActive(true);
+                }
+
                 if (_isButtonClicked)
                 {
-                    _firstStageGoalInstanceButton.SetActive(true);
+                    _goal.SetActive(true);
                 }
                 else
                 {
-                    _firstStageGoalInstanceButton.SetActive(false);
+                    _goal.SetActive(false);
                 }
 
                 if (_isGoal)
                 {
-                    SceneManager.LoadScene(_thirdStage); ;
+                    SceneManager.LoadScene(_thirdStage);
                 }
             }
+        }
+    }
+
+    void RandomCoinSelect()
+    {
+        #region
+        //https://www.pandanoir.info/entry/2013/03/04/193704
+        //本当はFisher–Yatesアルゴリズムを使ったほうがいい(やってることはほぼ一緒)
+        #endregion
+        _randomInt = Random.Range(0, _useCoinList.Count + 1);
+        _coinList.Add(_useCoinList[_randomInt]);
+        _useCoinList.RemoveAt(_randomInt);
+        if (_useCoinList.Count != 0)
+        {
+            RandomCoinSelect();
         }
     }
 
@@ -129,6 +154,13 @@ public class GameController : MonoBehaviour
         _sc._colorControlCount = 0;
         _player = GameObject.FindGameObjectWithTag("Player");
         _whiteMoveBlock = GameObject.FindGameObjectWithTag("WhiteMove");
+        _GoalInstanceButton.SetActive(false);
+
+        for (int i = 0; i < _coins.Length; i++)
+        {
+            _useCoinList[i] = _coins[i];
+            Instantiate(_useCoinList[i], _coinPos[i].position, Quaternion.identity);
+        }
 
         _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
         _savePlayerPosition = _player.transform.position;
@@ -144,12 +176,14 @@ public class GameController : MonoBehaviour
             _stageNumber = 2;
             _colorControlLimit = _secondStageColorControlLimit;
             _stageRotateLimit = _secondStageRotateLimit;
+            RandomCoinSelect();
         }
         else if (SceneManager.GetActiveScene().name == _thirdStage)
         {
             _stageNumber = 3;
             _colorControlLimit = _thirdStageColorControlLimit;
             _secondStageRotateLimit = _thirdStageRotateLimit;
+            RandomCoinSelect();
         }
         else
         {
