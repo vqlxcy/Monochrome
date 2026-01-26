@@ -12,9 +12,9 @@ public class KeyCoin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && _gc._coinList[0] == gameObject)
+        if (collision.gameObject.CompareTag("Player") && _gc._goalCoinList[0] == gameObject)
         {
-            _gc._coinList.RemoveAt(0);
+            _gc._goalCoinList.RemoveAt(0);
             Destroy(gameObject);
         }
     }
