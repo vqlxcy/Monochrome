@@ -1133,7 +1133,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2efb2cebb756ff548863a7a870f31c12, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4953,20 +4953,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df45b26feefe08408de6bec7d6f85ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
-  _firstStage: MonoStage01
-  _secondStage: MonoStage02
-  _thirdStage: MonoStage03
-  _firstStageColorControlLimit: 3
-  _secondStageColorControlLimit: 0
-  _thirdStageColorControlLimit: 0
-  _firstStageRotateLimit: 0
-  _secondStageRotateLimit: 0
-  _thirdStageRotateLimit: 0
+  _nextStage: MonoStage02
+  _colorControlLimit: 3
+  _stageRotateLimit: 0
   _player: {fileID: 0}
   _GoalInstanceButton: {fileID: 0}
-  _goal: {fileID: 0}
+  _goal: {fileID: 1957136789}
   _coins: []
   _coinPos: []
+  _interfaceCoinPos: []
   _coinList: []
   _isGoal: 0
   _isButtonClicked: 0
