@@ -11,18 +11,10 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     string _nextStage;
-    [SerializeField,Header("色変更の回数制限(ステージ毎)")]
-    int _firstStageColorControlLimit;
-    [SerializeField]
-    int _secondStageColorControlLimit;
-    [SerializeField]
-    int _thirdStageColorControlLimit;
-    [SerializeField, Header("ステージ回転の回数制限(ステージ毎)")]
-    int _firstStageRotateLimit;
-    [SerializeField]
-    int _secondStageRotateLimit;
-    [SerializeField]
-    int _thirdStageRotateLimit;
+    [SerializeField,Header("色変更の回数制限")]
+    int _colorControlLimit;
+    [SerializeField, Header("ステージ回転の回数制限")]
+    int _stageRotateLimit;
     [SerializeField]
     GameObject _player;
     [SerializeField]
@@ -38,8 +30,8 @@ public class GameController : MonoBehaviour
 
     List<GameObject> _useCoinList = new();
     public List<GameObject> _coinList = new List<GameObject>();
-    int _colorControlLimit;
-    int _stageRotateLimit;
+    
+    
     int _stageNumber;
     int _randomInt;
     Vector3 _savePlayerPosition;
@@ -166,21 +158,15 @@ public class GameController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "MonoStage01")
         {
             _stageNumber = 1;
-            _colorControlLimit = _firstStageColorControlLimit;
-            _stageRotateLimit = _firstStageRotateLimit;
         }
         else if (SceneManager.GetActiveScene().name == "MonoStage02")
         {
             _stageNumber = 2;
-            _colorControlLimit = _secondStageColorControlLimit;
-            _stageRotateLimit = _secondStageRotateLimit;
             RandomCoinSelect();
         }
         else if (SceneManager.GetActiveScene().name == "MonoStage03")
         {
             _stageNumber = 3;
-            _colorControlLimit = _thirdStageColorControlLimit;
-            _secondStageRotateLimit = _thirdStageRotateLimit;
             RandomCoinSelect();
         }
         else
