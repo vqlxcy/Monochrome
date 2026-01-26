@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     private float moveInput;
     private bool isGoal = false;
+    private bool isDead = false;
 
     // ƒAƒjƒ[ƒVƒ‡ƒ“ƒpƒ‰ƒ[ƒ^–¼
     private readonly int _isWalkingHash = Animator.StringToHash("Walk");
@@ -64,8 +66,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // ƒS[ƒ‹“’BŒã‚Í‘€ì•s‰Â
-        if (isGoal) return;
+        // ƒS[ƒ‹“’BŒã‚Ü‚½‚Í€–SŒã‚Í‘€ì•s‰Â
+        if (isGoal || isDead) return;
 
         // “ü—Íæ“¾
         moveInput = 0f;
@@ -93,8 +95,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // ƒS[ƒ‹Œã‚Í•¨—‰‰Z‚à’â~
-        if (isGoal) return;
+        // ƒS[ƒ‹Œã‚Ü‚½‚Í€–SŒã‚Í•¨—‰‰Z‚à’â~
+        if (isGoal || isDead) return;
 
         // ˆÚ“®
         _rb.linearVelocity = new Vector2(moveInput * moveSpeed, _rb.linearVelocity.y);
@@ -164,6 +166,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 StompEnemy(collision.gameObject);
             }
+            else
+            {
+                // “¥‚ñ‚Å‚¢‚È‚¢ê‡‚Í€–S
+                OnPlayerDeath();
+            }
         }
     }
 
@@ -188,6 +195,17 @@ public class PlayerMovement : MonoBehaviour
 
         // “¥‚ñ‚¾‚Ì’µ‚Ë•Ô‚è
         _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, enemyBounceForce);
+    }
+
+    private void OnPlayerDeath()
+    {
+        if (isDead) return; // “ñdˆ—–h~
+
+        isDead = true;
+        _rb.linearVelocity = Vector2.zero; // ˆÚ“®‚ğ’â~
+
+        // GameOverƒV[ƒ“‚ğ“Ç‚İ‚Ş
+        SceneManager.LoadScene("MonoGameOver");
     }
 
     private void OnGoalReached()
