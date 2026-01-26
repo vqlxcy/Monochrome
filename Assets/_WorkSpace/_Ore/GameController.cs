@@ -19,8 +19,10 @@ public class GameController : MonoBehaviour
     GameObject _player;
     [SerializeField]
     GameObject _goal;
-    [SerializeField]
+    [SerializeField,Header("取得できるコイン")]
     GameObject[] _goalCoins;
+    [SerializeField,Header("取得できないコイン")]
+    GameObject[] _interfaceCoins;
     [SerializeField]
     Transform[] _goalCoinPos;
     [SerializeField]
@@ -28,6 +30,8 @@ public class GameController : MonoBehaviour
 
     List<GameObject> _useCoinList = new();
     List<GameObject> _goalCoinList = new List<GameObject>();
+    List<GameObject> _nonUseCoinList = new List<GameObject>();
+    List<GameObject> _interfaceCoinList = new List<GameObject>();
     public List<GameObject> _collisionCoinList = new List<GameObject>();
 
 
@@ -56,6 +60,7 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < _goalCoins.Length; i++)
         {
             _useCoinList.Add(_goalCoins[i]);
+            _nonUseCoinList.Add(_interfaceCoins[i]);
         }
 
         if (SceneManager.GetActiveScene().name == "MonoStage01")
@@ -146,7 +151,9 @@ public class GameController : MonoBehaviour
         #endregion
         _randomInt = Random.Range(0, _useCoinList.Count);
         _goalCoinList.Add(_useCoinList[_randomInt]);
+        _interfaceCoinList.Add(_nonUseCoinList[_randomInt]);
         _useCoinList.RemoveAt(_randomInt);
+        _nonUseCoinList.RemoveAt(_randomInt);
         if (_useCoinList.Count != 0)
         {
             RandomCoinSelect();
@@ -155,8 +162,9 @@ public class GameController : MonoBehaviour
         {
             for (int i = 0; i < _goalCoins.Length; i++)
             {
-                GameObject obj = Instantiate(_goalCoinList[i], _goalCoinPos[i].position, Quaternion.identity);
-                _collisionCoinList.Add(obj);
+                GameObject obj = Instantiate(_interfaceCoinList[i], _goalCoinPos[i].position, Quaternion.identity);
+                GameObject goalCoins = Instantiate(_goalCoinList[i], _goalCoinPos[i + 3].position, Quaternion.identity);
+                _collisionCoinList.Add(goalCoins);
             }
         }
     }
