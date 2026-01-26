@@ -43,16 +43,16 @@ public class GameController : MonoBehaviour
     public bool _isButtonClicked = false;
     public bool _isPlayerDeath;
 
-    void Awake()
+    void Start()
     {
         _sc = GetComponent<StageColor>();
         _sr = GetComponent<StageRotation>();
-        _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
-
-        _isGoal = false;
-        _sc._colorControlCount = 0;
         _player = GameObject.FindGameObjectWithTag("Player");
         _whiteMoveBlock = GameObject.FindGameObjectWithTag("WhiteMove");
+
+        _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
+        _isGoal = false;
+        _sc._colorControlCount = 0;
         _GoalInstanceButton.SetActive(false);
 
         for (int i = 0; i < _coins.Length; i++)
@@ -82,11 +82,6 @@ public class GameController : MonoBehaviour
         {
             _stageNumber = 0;
         }
-    }
-
-    void Start()
-    {
-
     }
 
     void Update()
