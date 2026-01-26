@@ -27,8 +27,8 @@ public class GameController : MonoBehaviour
     Transform[] _interfaceCoinPos;
 
     List<GameObject> _useCoinList = new();
-    public List<GameObject> _goalCoinList = new List<GameObject>();
-    List<GameObject> _collisionCoinList = new List<GameObject>();
+    List<GameObject> _goalCoinList = new List<GameObject>();
+    public List<GameObject> _collisionCoinList = new List<GameObject>();
 
 
     int _stageNumber;
