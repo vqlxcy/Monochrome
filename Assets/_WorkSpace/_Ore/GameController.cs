@@ -49,6 +49,7 @@ public class GameController : MonoBehaviour
 
         _sc = GetComponent<StageColor>();
         _sr = GetComponent<StageRotation>();
+        _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
     }
 
     void Start()
@@ -68,11 +69,13 @@ public class GameController : MonoBehaviour
             if (_sc._colorControlNumber % 2 == 0)
             {
                 _savePlayerPosition = _player.transform.position;
+                _goal.SetActive(true);
             }
             else if (_sc._colorControlNumber % 2 == 1)
             {
                 _player.transform.position = _savePlayerPosition;
                 _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
+                _goal.SetActive(false);
             }
 
             _sc.BlockColorChange();
