@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent (typeof(CircleCollider2D))]
 public class KeyCoin : MonoBehaviour
 {
     GameController _gc;

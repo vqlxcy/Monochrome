@@ -95,6 +95,7 @@ public class GameController : MonoBehaviour
             if (_sc._colorControlNumber % 2 == 0)
             {
                 _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
+                _savePlayerPosition = _player.transform.position;
                 _goal.SetActive(false);
             }
             else if (_sc._colorControlNumber % 2 == 1)
