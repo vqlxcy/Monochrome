@@ -94,13 +94,13 @@ public class GameController : MonoBehaviour
             _sc._colorControlCount++;
             if (_sc._colorControlNumber % 2 == 0)
             {
-                _savePlayerPosition = _player.transform.position;
+                _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
                 _goal.SetActive(false);
             }
             else if (_sc._colorControlNumber % 2 == 1)
             {
+                _savePlayerPosition = _player.transform.position;
                 _player.transform.position = _savePlayerPosition;
-                _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
                 _goal.SetActive(true);
             }
 
