@@ -45,11 +45,43 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-
         _sc = GetComponent<StageColor>();
         _sr = GetComponent<StageRotation>();
         _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
+
+        _isGoal = false;
+        _sc._colorControlCount = 0;
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _whiteMoveBlock = GameObject.FindGameObjectWithTag("WhiteMove");
+        _GoalInstanceButton.SetActive(false);
+
+        for (int i = 0; i < _coins.Length; i++)
+        {
+            _useCoinList[i] = _coins[i];
+            Instantiate(_useCoinList[i], _coinPos[i].position, Quaternion.identity);
+        }
+
+        _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
+        _savePlayerPosition = _player.transform.position;
+
+        if (SceneManager.GetActiveScene().name == "MonoStage01")
+        {
+            _stageNumber = 1;
+        }
+        else if (SceneManager.GetActiveScene().name == "MonoStage02")
+        {
+            _stageNumber = 2;
+            RandomCoinSelect();
+        }
+        else if (SceneManager.GetActiveScene().name == "MonoStage03")
+        {
+            _stageNumber = 3;
+            RandomCoinSelect();
+        }
+        else
+        {
+            _stageNumber = 0;
+        }
     }
 
     void Start()
@@ -135,43 +167,6 @@ public class GameController : MonoBehaviour
         if (_useCoinList.Count != 0)
         {
             RandomCoinSelect();
-        }
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        _isGoal = false;
-        _sc._colorControlCount = 0;
-        _player = GameObject.FindGameObjectWithTag("Player");
-        _whiteMoveBlock = GameObject.FindGameObjectWithTag("WhiteMove");
-        _GoalInstanceButton.SetActive(false);
-
-        for (int i = 0; i < _coins.Length; i++)
-        {
-            _useCoinList[i] = _coins[i];
-            Instantiate(_useCoinList[i], _coinPos[i].position, Quaternion.identity);
-        }
-
-        _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
-        _savePlayerPosition = _player.transform.position;
-
-        if (SceneManager.GetActiveScene().name == "MonoStage01")
-        {
-            _stageNumber = 1;
-        }
-        else if (SceneManager.GetActiveScene().name == "MonoStage02")
-        {
-            _stageNumber = 2;
-            RandomCoinSelect();
-        }
-        else if (SceneManager.GetActiveScene().name == "MonoStage03")
-        {
-            _stageNumber = 3;
-            RandomCoinSelect();
-        }
-        else
-        {
-            _stageNumber = 0;
         }
     }
 }
