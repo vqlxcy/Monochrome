@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(StageRotation))]
 public class GameController : MonoBehaviour
 {
-    static GameController instance { get; set; }
-
     StageColor _sc;
     StageRotation _sr;
 
@@ -57,15 +55,6 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         _sc = GetComponent<StageColor>();
