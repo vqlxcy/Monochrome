@@ -54,7 +54,7 @@ public class GameController : MonoBehaviour
 
         for (int i = 0; i < _coins.Length; i++)
         {
-            _useCoinList[i] = _coins[i];
+            _useCoinList.Add(_coins[i]);
             Instantiate(_useCoinList[i], _coinPos[i].position, Quaternion.identity);
         }
 
