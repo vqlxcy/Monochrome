@@ -90,6 +90,8 @@ public class GameController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Return) && _sc._colorControlCount <= _colorControlLimit)
         {
+            _sc._colorControlNumber++;
+            _sc._colorControlCount++;
             if (_sc._colorControlNumber % 2 == 0)
             {
                 _savePlayerPosition = _player.transform.position;
@@ -104,8 +106,6 @@ public class GameController : MonoBehaviour
 
             _sc.BlockColorChange();
             _sc.BGColorChange();
-            _sc._colorControlNumber++;
-            _sc._colorControlCount++;
         }
 
         if (_isGoal)
