@@ -18,5 +18,10 @@ public class EnemyBullet : MonoBehaviour
     void Update()
     {
         _tr.position += _move * Time.deltaTime * _moveSpeed;
+
+        if (_tr.position.x <= -13 || _tr.position.x >= 13)
+        {
+            Destroy(gameObject);
+        }
     }
 }
