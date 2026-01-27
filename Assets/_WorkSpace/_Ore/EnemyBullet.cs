@@ -1,16 +1,22 @@
 using UnityEngine;
 
+[RequireComponent (typeof(CircleCollider2D))]
 public class EnemyBullet : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    Transform _tr;
+    Vector3 _move = new Vector3(1,0,0);
+
+    [SerializeField, Header("’e‚ÌˆÚ“®‘¬“x")]
+    int _moveSpeed;
+
+
+    void Awake()
     {
-        
+        _tr = transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        _tr.position += _move * Time.deltaTime * _moveSpeed;
     }
 }
