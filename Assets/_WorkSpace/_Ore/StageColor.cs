@@ -14,6 +14,10 @@ public class StageColor : MonoBehaviour
     Sprite _blackBlock;
     [SerializeField, Header("óºï˚ÇÃê¢äEÇ≈ë∂ç›Ç∑ÇÈÇ‡ÇÃÇÃSprite(çïÇÃéû)")]
     Sprite _whiteBlock;
+    [SerializeField, Header("AudioSource")]
+    AudioSource _as;
+    [SerializeField, Header("êFîΩì]éûÇÃSE")]
+    AudioClip _colorChangeSE;
 
     public int _colorControlNumber = 0;
     public int _colorControlCount;
@@ -68,6 +72,7 @@ public class StageColor : MonoBehaviour
 
     public void BGColorChange()
     {
+        _as.PlayOneShot(_colorChangeSE);
         _monoParentBGColor = _monoParentBG.GetComponentsInChildren<SpriteRenderer>();
         switch(_colorControlNumber % 2)
         {
