@@ -7,6 +7,7 @@ public class GuidePanelController : MonoBehaviour
     public GameObject stage01Panel;
     public GameObject stage02Panel;
     public GameObject stage03Panel;
+    public GameObject stage04Panel;   
 
     GameObject currentPanel;
 
@@ -20,6 +21,7 @@ public class GuidePanelController : MonoBehaviour
         if (stage01Panel != null) stage01Panel.SetActive(false);
         if (stage02Panel != null) stage02Panel.SetActive(false);
         if (stage03Panel != null) stage03Panel.SetActive(false);
+        if (stage04Panel != null) stage04Panel.SetActive(false); 
 
         string sceneName = SceneManager.GetActiveScene().name;
 
@@ -33,6 +35,9 @@ public class GuidePanelController : MonoBehaviour
                 break;
             case "MonoStage03":
                 currentPanel = stage03Panel;
+                break;
+            case "MonoStage04":          
+                currentPanel = stage04Panel;
                 break;
             default:
                 currentPanel = null;
