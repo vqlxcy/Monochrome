@@ -1644,6 +1644,114 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &344592769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 344592773}
+  - component: {fileID: 344592772}
+  - component: {fileID: 344592771}
+  - component: {fileID: 344592770}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &344592770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344592769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c56f5d390786a7459de0e3d67589961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageRotation
+  _stage: {fileID: 0}
+  _rotationAngle: 180
+  _stageRotateCount: 3
+--- !u!114 &344592771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344592769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df45b26feefe08408de6bec7d6f85ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameController
+  _nextStage: MonoStage03
+  _colorControlLimit: 3
+  _stageRotateLimit: 5
+  _player: {fileID: 0}
+  _goal: {fileID: 0}
+  _goalCoins:
+  - {fileID: 6177347052790277815, guid: edd583465f7915d4abe7f03af573dced, type: 3}
+  - {fileID: 4452345485519498873, guid: 00ade01ab74b08a4796a2427d81881da, type: 3}
+  - {fileID: 813751439835518750, guid: 97544b8c6c4d94841b976e6e5e745c32, type: 3}
+  _interfaceCoins:
+  - {fileID: 1645245346428989407, guid: df1c5f61afb542e458acc453162402a7, type: 3}
+  - {fileID: 598671055899579932, guid: c7b13bc7d51f8ae43990d7432d667157, type: 3}
+  - {fileID: 685783716532294757, guid: 75436cdf3fe6d544e90dc290659275b0, type: 3}
+  _goalCoinPos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _interfaceCoinPos: []
+  _collisionCoinList: []
+  _isGoal: 0
+  _isButtonClicked: 0
+  _isPlayerDeath: 0
+--- !u!114 &344592772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344592769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feca5cbad0eae7746907f60ecf9bf749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageColor
+  _blackDeleteParent: {fileID: 0}
+  _whiteDeleteParent: {fileID: 0}
+  _monoParent: {fileID: 0}
+  _monoParentBG: {fileID: 0}
+  _blackBlock: {fileID: 21300000, guid: 4fd3052b21893ad47add330811cb6753, type: 3}
+  _whiteBlock: {fileID: 21300000, guid: 50133802005a57b408987afab975302a, type: 3}
+  _as: {fileID: 0}
+  _colorChangeSE: {fileID: 8300000, guid: 4f8d2f306fd4aac40b85223183be0012, type: 3}
+  _colorControlNumber: 0
+  _colorControlCount: 0
+--- !u!4 &344592773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344592769}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.0775499, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &350340422
 GameObject:
   m_ObjectHideFlags: 0
@@ -5943,6 +6051,7 @@ MonoBehaviour:
   enemyTag: Enemy
   enemyBounceForce: 8
   jumpSE: {fileID: 8300000, guid: d53b35f7e5efa394798821fb1bd6cf46, type: 3}
+  goalSE: {fileID: 0}
 --- !u!212 &1592106264
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8499,3 +8608,4 @@ SceneRoots:
   - {fileID: 247180695}
   - {fileID: 10449606}
   - {fileID: 2126085350}
+  - {fileID: 344592773}
