@@ -9261,7 +9261,7 @@ GameObject:
   - component: {fileID: 2038688654}
   - component: {fileID: 2038688653}
   m_Layer: 5
-  m_Name: Guide Panel
+  m_Name: 01Guide Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
