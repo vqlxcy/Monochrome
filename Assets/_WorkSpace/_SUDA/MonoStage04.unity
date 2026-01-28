@@ -1561,7 +1561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df45b26feefe08408de6bec7d6f85ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
-  _nextStage: MonoStage03
+  _nextStage: MonoGameClear
   _colorControlLimit: 3
   _stageRotateLimit: 5
   _player: {fileID: 1592106259}
