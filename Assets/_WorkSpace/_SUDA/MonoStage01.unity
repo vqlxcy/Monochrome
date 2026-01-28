@@ -7616,7 +7616,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.92832017, y: -0.89, z: -1}
-  m_LocalScale: {x: 0.2566, y: 0.2612, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1046389275}
@@ -8068,6 +8068,7 @@ MonoBehaviour:
   stage01Panel: {fileID: 2038688652}
   stage02Panel: {fileID: 0}
   stage03Panel: {fileID: 0}
+  stage04Panel: {fileID: 0}
   seSource: {fileID: 1711240048}
   openSE: {fileID: 8300000, guid: d4222ca2faa0bd24ebb0eafe9296c83f, type: 3}
   closeSE: {fileID: 8300000, guid: 0583a5ab584074147993f7601fb5c53c, type: 3}
