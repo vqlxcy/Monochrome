@@ -1602,7 +1602,7 @@ MonoBehaviour:
   _whiteDeleteParent: {fileID: 547476850}
   _monoParent: {fileID: 839759793}
   _monoParentBG: {fileID: 9480682}
-  _blackBlock: {fileID: 21300000, guid: fc24c6582bee77a4a88464ed0f8b7f4f, type: 3}
+  _blackBlock: {fileID: 21300000, guid: 08ed0a868343ff346b781e0b44db3e94, type: 3}
   _whiteBlock: {fileID: 21300000, guid: 939909add36bb874dac0b48554763dbb, type: 3}
   _as: {fileID: 736143365}
   _colorChangeSE: {fileID: 8300000, guid: 4f8d2f306fd4aac40b85223183be0012, type: 3}
@@ -5342,8 +5342,8 @@ Transform:
   - {fileID: 1171411905}
   - {fileID: 271003031}
   - {fileID: 2035648774}
-  - {fileID: 1414528832}
   - {fileID: 344592773}
+  - {fileID: 1414528832}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1592106259
