@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - BlackMove
   - WhiteMove
+  - Button
+  - Bullet
   layers:
   - Default
   - TransparentFX

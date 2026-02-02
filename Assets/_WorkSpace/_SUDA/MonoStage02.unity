@@ -334,7 +334,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -17.534758, y: 0.124279976}
+  m_Offset: {x: -17.488369, y: 0.124279976}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -344,7 +344,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 41.94038, y: 7.4257174}
+  m_Size: {x: 41.847603, y: 7.4257174}
   m_EdgeRadius: 0
 --- !u!1 &64483547
 GameObject:
@@ -750,6 +750,7 @@ MonoBehaviour:
   groundCheckSize: {x: 0.8, y: 0.1}
   goalTag: Goal
   enemyTag: Enemy
+  bulletTag: Bullet
   enemyBounceForce: 8
   jumpSE: {fileID: 8300000, guid: d53b35f7e5efa394798821fb1bd6cf46, type: 3}
   goalSE: {fileID: 0}
@@ -859,7 +860,6 @@ Transform:
   - {fileID: 121522434}
   - {fileID: 1844140307}
   - {fileID: 206398031}
-  - {fileID: 2045760821}
   - {fileID: 1864372837}
   - {fileID: 848387715}
   - {fileID: 311879602}
@@ -868,6 +868,7 @@ Transform:
   - {fileID: 1274125920}
   - {fileID: 648946192}
   - {fileID: 941547847}
+  - {fileID: 788924369}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &161908544
@@ -2232,13 +2233,13 @@ MonoBehaviour:
   - {fileID: 598671055899579932, guid: c7b13bc7d51f8ae43990d7432d667157, type: 3}
   - {fileID: 685783716532294757, guid: 75436cdf3fe6d544e90dc290659275b0, type: 3}
   _goalCoinPos:
-  - {fileID: 1864372837}
-  - {fileID: 848387715}
-  - {fileID: 311879602}
   - {fileID: 161908545}
   - {fileID: 1249348101}
   - {fileID: 1274125920}
-  _interfaceCoinPos: []
+  _interfaceCoinPos:
+  - {fileID: 1864372837}
+  - {fileID: 848387715}
+  - {fileID: 311879602}
   _collisionCoinList: []
   _isGoal: 0
   _isButtonClicked: 0
@@ -2255,7 +2256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feca5cbad0eae7746907f60ecf9bf749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageColor
-  _blackDeleteParent: {fileID: 2045760818}
+  _blackDeleteParent: {fileID: 788924368}
   _whiteDeleteParent: {fileID: 554248510}
   _monoParent: {fileID: 941547846}
   _monoParentBG: {fileID: 206398029}
@@ -3140,6 +3141,38 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 941547847}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &788924368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 788924369}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &788924369
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788924368}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.4243298, y: -4.44528, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2045760821}
+  m_Father: {fileID: 147581985}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &846738461
 GameObject:
@@ -6553,7 +6586,7 @@ GameObject:
   - component: {fileID: 2045760819}
   m_Layer: 0
   m_Name: Switch
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6670,12 +6703,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2045760818}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.31, y: -1.41, z: -1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.73433, y: 3.0352802, z: -1}
   m_LocalScale: {x: 0.3263, y: 0.287, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 147581985}
+  m_Father: {fileID: 788924369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2063275209
 GameObject:
