@@ -20,11 +20,6 @@ public class KeyCoin : MonoBehaviour
         {
             _gc._collisionCoinList.RemoveAt(0);
             Destroy(gameObject);
-
-            if (_gc._collisionCoinList[0] == null)
-            {
-                SceneManager.LoadScene(_nextStage);
-            }
         }
     }
 }
