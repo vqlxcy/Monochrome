@@ -179,6 +179,11 @@ public class PlayerMovement : MonoBehaviour
                 OnPlayerDeath();
             }
         }
+        if (collision.gameObject.CompareTag("Button"))
+        {
+            _gameController._isButtonClicked = true;
+            Destroy(collision.gameObject);
+        }
     }
 
     private bool IsStompingEnemy(Collision2D collision)
