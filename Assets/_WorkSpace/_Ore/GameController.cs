@@ -132,10 +132,10 @@ public class GameController : MonoBehaviour
 
         if (_stageNumber >= 2)
         {
-            if (_collisionCoinList == null)
-            {
-                _isGoal = true;
-            }
+            //if (_collisionCoinList == null)
+            //{
+            //    _isGoal = true;
+            //}
 
             if (_buttonSpawn)
             {
