@@ -10,6 +10,7 @@ TagManager:
   - BlackMove
   - WhiteMove
   - Button
+  - Bullet
   layers:
   - Default
   - TransparentFX

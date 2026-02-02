@@ -860,7 +860,6 @@ Transform:
   - {fileID: 121522434}
   - {fileID: 1844140307}
   - {fileID: 206398031}
-  - {fileID: 2045760821}
   - {fileID: 1864372837}
   - {fileID: 848387715}
   - {fileID: 311879602}
@@ -869,6 +868,7 @@ Transform:
   - {fileID: 1274125920}
   - {fileID: 648946192}
   - {fileID: 941547847}
+  - {fileID: 788924369}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &161908544
@@ -2256,7 +2256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feca5cbad0eae7746907f60ecf9bf749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageColor
-  _blackDeleteParent: {fileID: 2045760818}
+  _blackDeleteParent: {fileID: 788924368}
   _whiteDeleteParent: {fileID: 554248510}
   _monoParent: {fileID: 941547846}
   _monoParentBG: {fileID: 206398029}
@@ -3141,6 +3141,38 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 941547847}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &788924368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 788924369}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &788924369
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788924368}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.4243298, y: -4.44528, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2045760821}
+  m_Father: {fileID: 147581985}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &846738461
 GameObject:
@@ -6554,7 +6586,7 @@ GameObject:
   - component: {fileID: 2045760819}
   m_Layer: 0
   m_Name: Switch
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6671,12 +6703,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2045760818}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.31, y: -1.41, z: -1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.73433, y: 3.0352802, z: -1}
   m_LocalScale: {x: 0.3263, y: 0.287, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 147581985}
+  m_Father: {fileID: 788924369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2063275209
 GameObject:
