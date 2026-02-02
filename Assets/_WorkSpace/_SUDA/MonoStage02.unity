@@ -334,7 +334,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -17.534758, y: 0.124279976}
+  m_Offset: {x: -17.488369, y: 0.124279976}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -344,7 +344,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 41.94038, y: 7.4257174}
+  m_Size: {x: 41.847603, y: 7.4257174}
   m_EdgeRadius: 0
 --- !u!1 &64483547
 GameObject:
@@ -750,6 +750,7 @@ MonoBehaviour:
   groundCheckSize: {x: 0.8, y: 0.1}
   goalTag: Goal
   enemyTag: Enemy
+  bulletTag: Bullet
   enemyBounceForce: 8
   jumpSE: {fileID: 8300000, guid: d53b35f7e5efa394798821fb1bd6cf46, type: 3}
   goalSE: {fileID: 0}
@@ -2232,13 +2233,13 @@ MonoBehaviour:
   - {fileID: 598671055899579932, guid: c7b13bc7d51f8ae43990d7432d667157, type: 3}
   - {fileID: 685783716532294757, guid: 75436cdf3fe6d544e90dc290659275b0, type: 3}
   _goalCoinPos:
-  - {fileID: 1864372837}
-  - {fileID: 848387715}
-  - {fileID: 311879602}
   - {fileID: 161908545}
   - {fileID: 1249348101}
   - {fileID: 1274125920}
-  _interfaceCoinPos: []
+  _interfaceCoinPos:
+  - {fileID: 1864372837}
+  - {fileID: 848387715}
+  - {fileID: 311879602}
   _collisionCoinList: []
   _isGoal: 0
   _isButtonClicked: 0
