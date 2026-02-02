@@ -120,12 +120,6 @@ public class GameController : MonoBehaviour
 
         if (_stageNumber >= 2)
         {
-            if (Input.GetKeyDown(KeyCode.R) && _sr._stageRotateCount <= _stageRotateLimit)
-            {
-                _sr.StageRotate();
-                _sr._stageRotateCount++;
-            }
-
             if (_collisionCoinList[0] == null)
             {
                 _isGoal = true;
@@ -139,6 +133,15 @@ public class GameController : MonoBehaviour
             if (_isGoal)
             {
                 SceneManager.LoadScene(_nextStage);
+            }
+
+            if (_stageNumber >= 3)
+            {
+                if (Input.GetKeyDown(KeyCode.R) && _sr._stageRotateCount <= _stageRotateLimit)
+                {
+                    _sr.StageRotate();
+                    _sr._stageRotateCount++;
+                }
             }
         }
     }
