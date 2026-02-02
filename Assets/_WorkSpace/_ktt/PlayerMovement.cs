@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("“Gİ’è")]
     [SerializeField] private string enemyTag = "Enemy";
+    [SerializeField] private string bulletTag = "Bullet";
     [SerializeField] private float enemyBounceForce = 8f; // “G‚ğ“¥‚ñ‚¾‚Ì’µ‚Ë•Ô‚è
 
     [Header("ƒTƒEƒ“ƒhİ’è")]
@@ -153,6 +154,12 @@ public class PlayerMovement : MonoBehaviour
                 _audioSource.PlayOneShot(goalSE);
             }
             OnGoalReached();
+        }
+
+        // ’e‚É“–‚½‚Á‚½ê‡
+        if (collision.CompareTag(bulletTag))
+        {
+            OnPlayerDeath();
         }
     }
 
