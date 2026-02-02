@@ -19,9 +19,9 @@ public class GameController : MonoBehaviour
     GameObject _player;
     [SerializeField]
     GameObject _goal;
-    [SerializeField,Header("取得できるコイン")]
+    [SerializeField, Header("取得できるコイン")]
     GameObject[] _goalCoins;
-    [SerializeField,Header("取得できないコイン")]
+    [SerializeField, Header("取得できないコイン")]
     GameObject[] _interfaceCoins;
     [SerializeField]
     Transform[] _goalCoinPos;
@@ -132,14 +132,14 @@ public class GameController : MonoBehaviour
 
         if (_stageNumber >= 2)
         {
-            //if (_collisionCoinList == null)
-            //{
-            //    _isGoal = true;
-            //}
+            if (_collisionCoinList.Count == 0)
+            {
+                _isGoal = true;
+            }
 
             if (_buttonSpawn)
             {
-                
+
             }
 
             if (_sc._colorControlNumber >= 1 && _nonCollisionCoinList[2] == true)
