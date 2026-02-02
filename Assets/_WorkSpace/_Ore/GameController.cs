@@ -28,11 +28,12 @@ public class GameController : MonoBehaviour
     [SerializeField]
     Transform[] _interfaceCoinPos;
 
-    List<GameObject> _useCoinList = new();
-    List<GameObject> _goalCoinList = new List<GameObject>();
-    List<GameObject> _nonUseCoinList = new List<GameObject>();
-    List<GameObject> _interfaceCoinList = new List<GameObject>();
-    public List<GameObject> _collisionCoinList = new List<GameObject>();
+    List<GameObject> _useCoinList = new(); //取得できるコインをランダムに選出するときに使うリスト
+    List<GameObject> _goalCoinList = new List<GameObject>(); //ランダムに並べ替えた取得できるコインを保存するリスト
+    List<GameObject> _nonUseCoinList = new List<GameObject>(); //取得できるコインをランダムに選出するときに使うリスト
+    List<GameObject> _interfaceCoinList = new List<GameObject>(); //ランダムに並べ替えた取得できないコインを保存するリスト
+    public List<GameObject> _collisionCoinList = new List<GameObject>(); //インスタンス化された取得できるコインを保存するリスト
+    List<GameObject> _nonCollisionCoinList = new List<GameObject>(); //インスタンス化された取得できないコインを保存するリスト
 
 
     int _stageNumber;
@@ -77,6 +78,11 @@ public class GameController : MonoBehaviour
             _stageNumber = 3;
             RandomCoinSelect();
         }
+        else if (SceneManager.GetActiveScene().name == "MonoStage04")
+        {
+            _stageNumber = 4;
+            RandomCoinSelect();
+        }
         else
         {
             _stageNumber = 0;
@@ -84,6 +90,11 @@ public class GameController : MonoBehaviour
 
         _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
         _savePlayerPosition = _player.transform.position;
+
+        for (int i = 0; i < _collisionCoinList.Count; i++)
+        {
+            _collisionCoinList[i].gameObject.SetActive(false);
+        }
     }
 
     void Update()
@@ -130,6 +141,22 @@ public class GameController : MonoBehaviour
                 
             }
 
+            if (_sc._colorControlNumber > 0 && _nonCollisionCoinList[2] == false)
+            {
+                for (int i = 0; i < _nonCollisionCoinList.Count; i++)
+                {
+                    _nonCollisionCoinList[i].SetActive(true);
+                }
+            }
+
+            if (_isButtonClicked && _collisionCoinList[2] == false)
+            {
+                for (int i = 0;i < _collisionCoinList.Count; i++)
+                {
+                    _collisionCoinList[i].SetActive(true);
+                }
+            }
+
             if (_isGoal)
             {
                 SceneManager.LoadScene(_nextStage);
@@ -166,8 +193,9 @@ public class GameController : MonoBehaviour
             for (int i = 0; i < _goalCoins.Length; i++)
             {
                 GameObject obj = Instantiate(_interfaceCoinList[i], _goalCoinPos[i].position, Quaternion.identity);
-                GameObject goalCoins = Instantiate(_goalCoinList[i], _goalCoinPos[i + 3].position, Quaternion.identity);
+                GameObject goalCoins = Instantiate(_goalCoinList[i], _interfaceCoinPos[i].position, Quaternion.identity);
                 _collisionCoinList.Add(goalCoins);
+                _nonCollisionCoinList.Add(obj);
             }
         }
     }
