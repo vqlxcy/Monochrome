@@ -9,7 +9,6 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField, Header("’e‚ÌˆÚ“®‘¬“x")]
     int _moveSpeed;
 
-
     void Awake()
     {
         _tr = transform;
