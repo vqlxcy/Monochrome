@@ -150,9 +150,9 @@ public class GameController : MonoBehaviour
                 }
             }
 
-            if (_isButtonClicked && _collisionCoinList[2] == false)
+            if (_isButtonClicked && _sc._colorControlNumber % 2 == 0)
             {
-                for (int i = 0;i < _collisionCoinList.Count; i++)
+                for (int i = 0; i < _collisionCoinList.Count; i++)
                 {
                     _collisionCoinList[i].SetActive(true);
                 }
