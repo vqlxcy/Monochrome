@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - BlackMove
   - WhiteMove
+  - Button
   layers:
   - Default
   - TransparentFX
