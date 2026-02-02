@@ -193,8 +193,8 @@ public class GameController : MonoBehaviour
         {
             for (int i = 0; i < _goalCoins.Length; i++)
             {
-                GameObject obj = Instantiate(_interfaceCoinList[i], _goalCoinPos[i].position, Quaternion.identity);
-                GameObject goalCoins = Instantiate(_goalCoinList[i], _interfaceCoinPos[i].position, Quaternion.identity);
+                GameObject obj = Instantiate(_interfaceCoinList[i], _interfaceCoinPos[i].position, Quaternion.identity);
+                GameObject goalCoins = Instantiate(_goalCoinList[i], _goalCoinPos[i].position, Quaternion.identity);
                 _collisionCoinList.Add(goalCoins);
                 _nonCollisionCoinList.Add(obj);
             }
