@@ -94,6 +94,7 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < _collisionCoinList.Count; i++)
         {
             _collisionCoinList[i].gameObject.SetActive(false);
+            _nonCollisionCoinList[i].gameObject.SetActive(false);
         }
     }
 
@@ -141,7 +142,7 @@ public class GameController : MonoBehaviour
                 
             }
 
-            if (_sc._colorControlNumber > 0 && _nonCollisionCoinList[2] == false)
+            if (_sc._colorControlNumber == 1 && _nonCollisionCoinList[2] == false)
             {
                 for (int i = 0; i < _nonCollisionCoinList.Count; i++)
                 {
