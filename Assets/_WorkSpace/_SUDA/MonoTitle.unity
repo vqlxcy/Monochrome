@@ -830,7 +830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1561874082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1358,7 +1358,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 144180233204710707, guid: 72774be6cd53b5e4699fbbb58bdaf8e2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1661415386382017472, guid: 72774be6cd53b5e4699fbbb58bdaf8e2, type: 3}
       propertyPath: m_Color.b
@@ -1384,6 +1384,26 @@ PrefabInstance:
       propertyPath: bgmPercentText
       value: 
       objectReference: {fileID: 1847881210}
+    - target: {fileID: 1801865301954405536, guid: 72774be6cd53b5e4699fbbb58bdaf8e2, type: 3}
+      propertyPath: sceneBGMList.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1801865301954405536, guid: 72774be6cd53b5e4699fbbb58bdaf8e2, type: 3}
+      propertyPath: sceneBGMList.Array.data[4].bgm
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f898f4298f5f5b42ba8db13fa90acbb, type: 3}
+    - target: {fileID: 1801865301954405536, guid: 72774be6cd53b5e4699fbbb58bdaf8e2, type: 3}
+      propertyPath: sceneBGMList.Array.data[7].bgm
+      value: 
+      objectReference: {fileID: 8300000, guid: ae5bc0dbb4582ca42b20b6b55b216328, type: 3}
+    - target: {fileID: 1801865301954405536, guid: 72774be6cd53b5e4699fbbb58bdaf8e2, type: 3}
+      propertyPath: sceneBGMList.Array.data[4].sceneName
+      value: MonoStage03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1801865301954405536, guid: 72774be6cd53b5e4699fbbb58bdaf8e2, type: 3}
+      propertyPath: sceneBGMList.Array.data[7].sceneName
+      value: MonoStage04
+      objectReference: {fileID: 0}
     - target: {fileID: 2091773016171936382, guid: 72774be6cd53b5e4699fbbb58bdaf8e2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1522,7 +1542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5039466504438553889, guid: 72774be6cd53b5e4699fbbb58bdaf8e2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8694048238746499533, guid: 72774be6cd53b5e4699fbbb58bdaf8e2, type: 3}
       propertyPath: m_Color.b

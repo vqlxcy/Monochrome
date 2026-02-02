@@ -5295,6 +5295,7 @@ MonoBehaviour:
   stage01Panel: {fileID: 0}
   stage02Panel: {fileID: 1236443680}
   stage03Panel: {fileID: 0}
+  stage04Panel: {fileID: 0}
   seSource: {fileID: 1619721746}
   openSE: {fileID: 8300000, guid: d4222ca2faa0bd24ebb0eafe9296c83f, type: 3}
   closeSE: {fileID: 8300000, guid: 0583a5ab584074147993f7601fb5c53c, type: 3}
@@ -5922,7 +5923,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.123584986, y: 0.2832861}
+  m_Offset: {x: -0.011854649, y: 0.21943998}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5932,7 +5933,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 6.3676877, y: 6.1121254}
+  m_Size: {x: 6.144227, y: 5.984433}
   m_EdgeRadius: 0
 --- !u!212 &1844140306
 SpriteRenderer:
