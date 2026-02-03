@@ -3,7 +3,7 @@ using UnityEngine;
 public class BulletEnemy : MonoBehaviour
 {
     [SerializeField]
-    int _enemyAttackInterval;
+    float _enemyAttackInterval;
     [SerializeField]
     GameObject _enemyBullet;
 
@@ -13,7 +13,7 @@ public class BulletEnemy : MonoBehaviour
         _time += Time.deltaTime;
         if (_time > _enemyAttackInterval)
         {
-            Instantiate(_enemyBullet);
+            Instantiate(_enemyBullet,gameObject.transform.position,Quaternion.identity);
             _time = 0;
         }
     }
