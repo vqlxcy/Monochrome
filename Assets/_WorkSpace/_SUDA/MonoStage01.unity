@@ -1120,6 +1120,7 @@ MonoBehaviour:
   groundCheckSize: {x: 0.8, y: 0.1}
   goalTag: Goal
   enemyTag: Enemy
+  bulletTag: Bullet
   enemyBounceForce: 8
   jumpSE: {fileID: 8300000, guid: d53b35f7e5efa394798821fb1bd6cf46, type: 3}
   goalSE: {fileID: 8300000, guid: bf2bb6fe3ad1fe44fbf3b5e14efc12f5, type: 3}
@@ -3860,8 +3861,8 @@ Transform:
   m_GameObject: {fileID: 786202263}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.58831954, y: -2.155, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.4997, y: -2.155, z: -1}
+  m_LocalScale: {x: 1.72279, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1046389275}
@@ -6866,7 +6867,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.0019876957}
+  m_Offset: {x: 0.022071883, y: -0.0019876957}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -6876,7 +6877,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.80616}
+  m_Size: {x: 0.9558562, y: 0.80616}
   m_EdgeRadius: 0
 --- !u!212 &1423427951
 SpriteRenderer:
@@ -6946,7 +6947,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.9999946, w: 0.0033086848}
   m_LocalPosition: {x: -0.64066195, y: -3.06, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.72279, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1046389275}
@@ -8394,7 +8395,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.0019876957}
+  m_Offset: {x: 0.02382204, y: -0.0019876957}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -8404,7 +8405,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.80616}
+  m_Size: {x: 0.9523559, y: 0.80616}
   m_EdgeRadius: 0
 --- !u!212 &1852778655
 SpriteRenderer:
