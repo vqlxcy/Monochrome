@@ -1,15 +1,58 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ExplanationBackButton : MonoBehaviour
 {
-    [Header("クリックSE")]
+    [Header("UI")]
+    public Button backButton;
+
+    [Header("白発光設定")]
+    public Color baseColor = Color.white;      
+    public float glowStrength = 0.3f;         
+    public float glowSpeed = 2f;               
+
+    [Header("決定SE")]
     public AudioClip clickSE;
 
     [Header("戻るシーン名")]
     public string backSceneName = "MonoTitle";
 
-    public void OnClickBackButton()
+    bool isDeciding = false;
+    Image buttonImage;
+
+    void Start()
+    {
+        buttonImage = backButton.GetComponent<Image>();
+    }
+
+    void Update()
+    {
+        UpdateGlow();
+
+        if (isDeciding) return;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isDeciding = true;
+            PlaySE();
+            SceneManager.LoadScene(backSceneName);
+        }
+    }
+
+    void UpdateGlow()
+    {
+        if (buttonImage == null) return;
+
+        float t = (Mathf.Sin(Time.time * glowSpeed) + 1f) * 0.5f;
+
+        Color glowColor = baseColor + Color.white * (t * glowStrength);
+        glowColor.a = 1f; 
+
+        buttonImage.color = glowColor;
+    }
+
+    void PlaySE()
     {
         if (clickSE != null && MonoAudioManager.Instance != null)
         {
@@ -19,7 +62,5 @@ public class ExplanationBackButton : MonoBehaviour
                 audio.PlayOneShot(clickSE);
             }
         }
-
-        SceneManager.LoadScene(backSceneName);
     }
 }

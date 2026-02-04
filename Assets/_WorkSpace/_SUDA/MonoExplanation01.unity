@@ -749,6 +749,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9934fe50c550b624fa4fbdddcb06fffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExplanationBackButton
+  backButton: {fileID: 1013115693}
+  outline: {fileID: 0}
   clickSE: {fileID: 8300000, guid: 63e69723c91291f4fb21761c20adf662, type: 3}
   backSceneName: MonoTitle
 --- !u!1 &1099847795
