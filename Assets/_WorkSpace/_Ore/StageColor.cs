@@ -7,7 +7,7 @@ public class StageColor : MonoBehaviour
     [SerializeField, Header("•‚Ì¢ŠE‚Ì‚É‚¾‚¯Œ©‚¦‚é‚à‚Ì")]
     GameObject _whiteDeleteParent;
     [SerializeField, Header("—¼•û‚Å‘¶İ‚·‚é‚à‚Ì(Sprute’£‘Ö)")]
-    GameObject _monoParent;
+    public GameObject _monoParent;
     [SerializeField, Header("—¼•û‚Å‘¶İ‚·‚é‚à‚Ì(Color”’l•ÏX)")]
     GameObject _monoParentBG;
     [SerializeField, Header("—¼•û‚Ì¢ŠE‚Å‘¶İ‚·‚é‚à‚Ì‚ÌSprite(”’‚Ì)")]

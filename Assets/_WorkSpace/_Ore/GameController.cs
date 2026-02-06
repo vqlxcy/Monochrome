@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
 {
     StageColor _sc;
     StageRotation _sr;
+    Rigidbody2D _rb;
 
     [SerializeField]
     string _nextStage;
@@ -169,6 +170,8 @@ public class GameController : MonoBehaviour
                 {
                     _sr.StageRotate();
                     _sr._stageRotateCount++;
+                    _rb = _sc._monoParent.GetComponentInChildren<Rigidbody2D>();
+                    _rb.gravityScale *= -1;
                 }
             }
         }
