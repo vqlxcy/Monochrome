@@ -263,8 +263,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameOverUIManager
   retryButton: {fileID: 654315835}
   backToButton: {fileID: 622283687}
+  selectedColor: {r: 1, g: 1, b: 1, a: 1}
+  unselectedColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
   audioSource: {fileID: 156503523}
-  buttonSE: {fileID: 8300000, guid: 63e69723c91291f4fb21761c20adf662, type: 3}
+  moveSE: {fileID: 8300000, guid: f31a24adb178a034a9375168ab594751, type: 3}
+  decideSE: {fileID: 8300000, guid: 63e69723c91291f4fb21761c20adf662, type: 3}
   waitTime: 0.313
 --- !u!1 &445453210
 GameObject:

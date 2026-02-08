@@ -8,36 +8,91 @@ public class GameClearUIManager : MonoBehaviour
     public Button playAgainButton;
     public Button backToTitleButton;
 
+    [Header("‘I‘ðFÝ’è")]
+    public Color selectedColor = Color.white;
+    public Color unselectedColor = new Color(0.6f, 0.6f, 0.6f);
+
     [Header("SE")]
     public AudioSource audioSource;
-    public AudioClip buttonSE;
+    public AudioClip moveSE;     
+    public AudioClip decideSE;   
 
     [Header("‘JˆÚ‚Ü‚Å‚Ì‘Ò‚¿ŽžŠÔ")]
-    public float waitTime = 0.3f; 
+    public float waitTime = 0.3f;
 
-    private void Start()
+    int currentIndex = 0; 
+    bool isDeciding = false;
+
+    void Start()
     {
-        playAgainButton.onClick.AddListener(() =>
-        {
-            StartCoroutine(PlaySEAndLoad("MonoStage01"));
-        });
-
-        backToTitleButton.onClick.AddListener(() =>
-        {
-            StartCoroutine(PlaySEAndLoad("MonoTitle"));
-        });
+        UpdateButtonVisual();
     }
 
-    IEnumerator PlaySEAndLoad(string sceneName)
+    void Update()
     {
-        if (audioSource != null && buttonSE != null)
+        if (isDeciding) return;
+
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            audioSource.PlayOneShot(buttonSE);
+            if (currentIndex != 0)
+            {
+                currentIndex = 0;
+                PlayMoveSE();
+                UpdateButtonVisual();
+            }
         }
 
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (currentIndex != 1)
+            {
+                currentIndex = 1;
+                PlayMoveSE();
+                UpdateButtonVisual();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isDeciding = true;
+
+            PlayDecideSE();
+
+            if (currentIndex == 0)
+            {
+                StartCoroutine(LoadScene("MonoStage01"));
+            }
+            else
+            {
+                StartCoroutine(LoadScene("MonoTitle"));
+            }
+        }
+    }
+
+    void UpdateButtonVisual()
+    {
+        playAgainButton.GetComponent<Image>().color =
+            (currentIndex == 0) ? selectedColor : unselectedColor;
+
+        backToTitleButton.GetComponent<Image>().color =
+            (currentIndex == 1) ? selectedColor : unselectedColor;
+    }
+
+    void PlayMoveSE()
+    {
+        if (audioSource && moveSE)
+            audioSource.PlayOneShot(moveSE);
+    }
+
+    void PlayDecideSE()
+    {
+        if (audioSource && decideSE)
+            audioSource.PlayOneShot(decideSE);
+    }
+
+    IEnumerator LoadScene(string sceneName)
+    {
         yield return new WaitForSeconds(waitTime);
-        
-        
         SceneManager.LoadScene(sceneName);
     }
 }
