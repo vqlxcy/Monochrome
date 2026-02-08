@@ -701,7 +701,7 @@ GameObject:
   - component: {fileID: 78349526}
   m_Layer: 0
   m_Name: BulletEnemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1755,6 +1755,7 @@ MonoBehaviour:
   _stageRotateLimit: 5
   _player: {fileID: 1592106259}
   _goal: {fileID: 779328446}
+  _switch: {fileID: 0}
   _goalCoins:
   - {fileID: 6177347052790277815, guid: edd583465f7915d4abe7f03af573dced, type: 3}
   - {fileID: 4452345485519498873, guid: 00ade01ab74b08a4796a2427d81881da, type: 3}
@@ -1772,6 +1773,7 @@ MonoBehaviour:
   - {fileID: 1859119683}
   - {fileID: 1171411905}
   _gravityReverse: {fileID: 166720546}
+  _enemys: []
   _collisionCoinList: []
   _isGoal: 0
   _isButtonClicked: 0
@@ -2143,9 +2145,10 @@ GameObject:
   - component: {fileID: 414674813}
   - component: {fileID: 414674812}
   - component: {fileID: 414674811}
+  - component: {fileID: 414674815}
   m_Layer: 0
   m_Name: Trap (1)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2180,7 +2183,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -2291,6 +2294,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &414674815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414674810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b512afa5c117c3742af6339eba7f9ac2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElectricCutter
+  _moveSpeed: -1
+  _alpha: 120
 --- !u!1 &464623930
 GameObject:
   m_ObjectHideFlags: 0
@@ -2838,7 +2855,7 @@ GameObject:
   - component: {fileID: 728865764}
   m_Layer: 0
   m_Name: BulletEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4260,9 +4277,10 @@ GameObject:
   - component: {fileID: 1079080318}
   - component: {fileID: 1079080317}
   - component: {fileID: 1079080316}
+  - component: {fileID: 1079080320}
   m_Layer: 0
   m_Name: Trap (3)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4297,7 +4315,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -4408,6 +4426,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1079080320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079080315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b512afa5c117c3742af6339eba7f9ac2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElectricCutter
+  _moveSpeed: -1
+  _alpha: 120
 --- !u!1 &1107368926
 GameObject:
   m_ObjectHideFlags: 0
@@ -5175,9 +5207,10 @@ GameObject:
   - component: {fileID: 1237262455}
   - component: {fileID: 1237262454}
   - component: {fileID: 1237262453}
+  - component: {fileID: 1237262457}
   m_Layer: 0
   m_Name: Trap (2)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5212,7 +5245,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -5323,6 +5356,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1237262457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237262452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b512afa5c117c3742af6339eba7f9ac2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElectricCutter
+  _moveSpeed: -1
+  _alpha: 120
 --- !u!1 &1344286502
 GameObject:
   m_ObjectHideFlags: 0
@@ -5335,9 +5382,10 @@ GameObject:
   - component: {fileID: 1344286505}
   - component: {fileID: 1344286504}
   - component: {fileID: 1344286503}
+  - component: {fileID: 1344286507}
   m_Layer: 0
   m_Name: Trap (5)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5372,7 +5420,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -5483,6 +5531,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1344286507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344286502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b512afa5c117c3742af6339eba7f9ac2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElectricCutter
+  _moveSpeed: -1
+  _alpha: 120
 --- !u!1 &1386308539
 GameObject:
   m_ObjectHideFlags: 0
@@ -6511,9 +6573,10 @@ GameObject:
   - component: {fileID: 1612373926}
   - component: {fileID: 1612373925}
   - component: {fileID: 1612373924}
+  - component: {fileID: 1612373928}
   m_Layer: 0
   m_Name: Trap (4)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6548,7 +6611,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -6659,6 +6722,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1612373928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612373923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b512afa5c117c3742af6339eba7f9ac2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElectricCutter
+  _moveSpeed: -1
+  _alpha: 120
 --- !u!1 &1623418395
 GameObject:
   m_ObjectHideFlags: 0
@@ -7940,9 +8017,10 @@ GameObject:
   - component: {fileID: 2008709016}
   - component: {fileID: 2008709019}
   - component: {fileID: 2008709018}
+  - component: {fileID: 2008709020}
   m_Layer: 0
   m_Name: Trap
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8050,7 +8128,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -8088,6 +8166,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2008709020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008709015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b512afa5c117c3742af6339eba7f9ac2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElectricCutter
+  _moveSpeed: -1
+  _alpha: 120
 --- !u!1 &2035648773
 GameObject:
   m_ObjectHideFlags: 0
