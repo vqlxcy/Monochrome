@@ -183,6 +183,7 @@ public class GameController : MonoBehaviour
                     _prb.gravityScale *= -1;
                     _sr.StageRotate();
                     _sr._stageRotateCount++;
+                    _isRotate = !_isRotate;
                 }
             }
         }
