@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     StageColor _sc;
     StageRotation _sr;
     Rigidbody2D[] _rb;
+    Rigidbody2D _prb;
 
     [SerializeField]
     string _nextStage;
@@ -55,6 +56,7 @@ public class GameController : MonoBehaviour
         _sr = GetComponent<StageRotation>();
         _player = GameObject.FindGameObjectWithTag("Player");
         _whiteMoveBlock = GameObject.FindGameObjectWithTag("WhiteMove");
+        _prb = _player.GetComponent<Rigidbody2D>();
 
         _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
         _isGoal = false;
@@ -176,6 +178,7 @@ public class GameController : MonoBehaviour
                     {
                         _rb[i].gravityScale *= -1;
                     }
+                    _prb.gravityScale *= -1;
                 }
             }
         }
