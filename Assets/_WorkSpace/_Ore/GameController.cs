@@ -171,14 +171,14 @@ public class GameController : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.R) && _sr._stageRotateCount <= _stageRotateLimit)
                 {
-                    _sr.StageRotate();
-                    _sr._stageRotateCount++;
                     _rb = _sc._monoParent.GetComponentsInChildren<Rigidbody2D>();
                     for (int i = 0; i < _rb.Length; i++)
                     {
                         _rb[i].gravityScale *= -1;
                     }
                     _prb.gravityScale *= -1;
+                    _sr.StageRotate();
+                    _sr._stageRotateCount++;
                 }
             }
         }
