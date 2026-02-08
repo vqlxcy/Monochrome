@@ -10,6 +10,7 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField, Header("’e‚ÌˆÚ“®‘¬“x")]
     int _moveSpeed;
 
+    int _moveDirection;
     void Awake()
     {
         _tr = transform;
@@ -18,12 +19,16 @@ public class EnemyBullet : MonoBehaviour
 
     void Update()
     {
-        if (_gc._isRotate == !_gc._isRotate)
+        if (_gc._isRotate)
         {
-            _moveSpeed *= -1;
+            _moveDirection = 1;
+        }
+        else
+        {
+            _moveDirection = -1;
         }
 
-        _tr.position += _move * Time.deltaTime * _moveSpeed;
+        _tr.position += _move * Time.deltaTime * _moveSpeed * _moveDirection;
 
         if (_tr.position.x <= -13 || _tr.position.x >= 13)
         {
