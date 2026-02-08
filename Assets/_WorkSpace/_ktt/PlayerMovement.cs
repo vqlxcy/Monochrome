@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("ゴール設定")]
     [SerializeField] private string goalTag = "Goal";
 
+    [Header("ボタン判定")]
+    [SerializeField] private string buttonTag = "Button";
+
     [Header("敵設定")]
     [SerializeField] private string enemyTag = "Enemy";
     [SerializeField] private string bulletTag = "Bullet";
@@ -24,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("サウンド設定")]
     [SerializeField] private AudioClip jumpSE;
     [SerializeField] private AudioClip goalSE;
+    [SerializeField] private AudioClip buttonSE;
 
     private Rigidbody2D _rb;
     private Animator _animator;
@@ -143,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
         _animator.SetBool(_isJumpingHash, !isGrounded);
     }
 
-    // ゴール判定
+    // ゴール・弾判定
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(goalTag) && !isGoal)
@@ -163,7 +167,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // 敵を踏む判定
+    // 敵を踏む判定・ボタン判定
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(enemyTag))
@@ -179,10 +183,14 @@ public class PlayerMovement : MonoBehaviour
                 OnPlayerDeath();
             }
         }
-        if (collision.gameObject.CompareTag("Button"))
+
+        if (collision.gameObject.CompareTag(buttonTag))
         {
-            _gameController._isButtonClicked = true;
-            Destroy(collision.gameObject);
+            // プレイヤーがボタンの上から当たったか判定
+            if (IsStompingButton(collision))
+            {
+                PressButton(collision.gameObject);
+            }
         }
     }
 
@@ -207,6 +215,35 @@ public class PlayerMovement : MonoBehaviour
 
         // 踏んだ時の跳ね返り
         _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, enemyBounceForce);
+    }
+
+    private bool IsStompingButton(Collision2D collision)
+    {
+        // 衝突点の相対的な位置を確認
+        foreach (ContactPoint2D contact in collision.contacts)
+        {
+            // プレイヤーがボタンより上にいて、下向きに移動している場合
+            if (contact.normal.y > 0.5f && _rb.linearVelocity.y <= 0)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void PressButton(GameObject button)
+    {
+        // ボタンSE再生
+        if (_audioSource != null && buttonSE != null)
+        {
+            _audioSource.PlayOneShot(buttonSE);
+        }
+
+        // GameControllerにボタンが押されたことを通知
+        if (_gameController != null)
+        {
+            _gameController._isButtonClicked = true;
+        }
     }
 
     private void OnPlayerDeath()
