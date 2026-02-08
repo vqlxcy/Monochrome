@@ -29,14 +29,14 @@ public class ElectricCutter : MonoBehaviour
             _moveSpeed *= -1;
         }
 
-        if (_sc._colorControlNumber == 0)
+        if (_sc._colorControlNumber % 2 == 0)
         {
-            _sr.color = new Vector4(255, 255, 255, 255);
+            _sr.color = new Color(1, 1, 1, 1);
             _c2d.enabled = true;
         }
         else
         {
-            _sr.color = new Vector4(255, 255, 255, _alpha);
+            _sr.color = new Color(1, 1, 1, _alpha);
             _c2d.enabled = false;
         }
     }
