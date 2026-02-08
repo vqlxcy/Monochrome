@@ -21,6 +21,8 @@ public class GameController : MonoBehaviour
     GameObject _player;
     [SerializeField]
     GameObject _goal;
+    [SerializeField,Header("スイッチ")]
+    GameObject _switch;
     [SerializeField, Header("取得できるコイン")]
     GameObject[] _goalCoins;
     [SerializeField, Header("取得できないコイン")]
@@ -31,6 +33,8 @@ public class GameController : MonoBehaviour
     Transform[] _interfaceCoinPos;
     [SerializeField,Header("重力を反転させるオブジェクト")]
     GameObject _gravityReverse;
+    [SerializeField,Header("生存している敵のリスト")]
+    public GameObject[] _enemys;
 
     List<GameObject> _useCoinList = new(); //取得できるコインをランダムに選出するときに使うリスト
     List<GameObject> _goalCoinList = new List<GameObject>(); //ランダムに並べ替えた取得できるコインを保存するリスト
@@ -47,13 +51,14 @@ public class GameController : MonoBehaviour
     GameObject _whiteMoveBlock;
 
     public bool _isGoal;
-    bool _buttonSpawn;
+    bool _buttonSpawn = false;
     public bool _isButtonClicked = false;
     public bool _isPlayerDeath;
     public bool _isRotate = false;
 
     void Start()
     {
+        _enemys = GameObject.FindGameObjectsWithTag("Enemy");
         _sc = GetComponent<StageColor>();
         _sr = GetComponent<StageRotation>();
         _player = GameObject.FindGameObjectWithTag("Player");
@@ -143,9 +148,18 @@ public class GameController : MonoBehaviour
                 _isGoal = true;
             }
 
+            if (_enemys.Length == 0)
+            {
+                _buttonSpawn = true;
+            }
+
             if (_buttonSpawn)
             {
-
+                _switch.SetActive(true);
+            }
+            else
+            {
+                _switch.SetActive(false);
             }
 
             if (_sc._colorControlNumber >= 1 && _nonCollisionCoinList[2] == true)
