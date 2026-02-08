@@ -1672,6 +1672,7 @@ MonoBehaviour:
   - {fileID: 990333760}
   - {fileID: 1859119683}
   - {fileID: 1171411905}
+  _gravityReverse: {fileID: 0}
   _collisionCoinList: []
   _isGoal: 0
   _isButtonClicked: 0
@@ -6256,11 +6257,13 @@ MonoBehaviour:
   groundCheck: {fileID: 1002655384}
   groundCheckSize: {x: 0.8, y: 0.1}
   goalTag: Goal
+  buttonTag: Button
   enemyTag: Enemy
   bulletTag: Bullet
   enemyBounceForce: 8
   jumpSE: {fileID: 8300000, guid: d53b35f7e5efa394798821fb1bd6cf46, type: 3}
-  goalSE: {fileID: 0}
+  goalSE: {fileID: 8300000, guid: bf2bb6fe3ad1fe44fbf3b5e14efc12f5, type: 3}
+  buttonSE: {fileID: 8300000, guid: 452e787e091a7d44281fbfbc006e5cb6, type: 3}
 --- !u!212 &1592106264
 SpriteRenderer:
   m_ObjectHideFlags: 0
