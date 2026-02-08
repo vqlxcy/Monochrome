@@ -21,16 +21,16 @@ public class EnemyBullet : MonoBehaviour
     {
         if (_gc._isRotate)
         {
-            _moveDirection = 1;
+            _moveDirection = -1;
         }
         else
         {
-            _moveDirection = -1;
+            _moveDirection = 1;
         }
 
         _tr.position += _move * Time.deltaTime * _moveSpeed * _moveDirection;
 
-        if (_tr.position.x <= -13 || _tr.position.x >= 13)
+        if (_tr.position.x <= -9 || _tr.position.x >= 9)
         {
             Destroy(gameObject);
         }
