@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -228,11 +227,5 @@ public class GameController : MonoBehaviour
                 _nonCollisionCoinList.Add(obj);
             }
         }
-    }
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        
     }
 }
