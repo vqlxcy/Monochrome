@@ -30,6 +30,8 @@ public class GameController : MonoBehaviour
     Transform[] _goalCoinPos;
     [SerializeField]
     Transform[] _interfaceCoinPos;
+    [SerializeField,Header("重力を反転させるオブジェクト")]
+    GameObject _gravityReverse;
 
     List<GameObject> _useCoinList = new(); //取得できるコインをランダムに選出するときに使うリスト
     List<GameObject> _goalCoinList = new List<GameObject>(); //ランダムに並べ替えた取得できるコインを保存するリスト
@@ -171,15 +173,13 @@ public class GameController : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.R) && _sr._stageRotateCount <= _stageRotateLimit)
                 {
-                    _rb = _sc._monoParent.GetComponentsInChildren<Rigidbody2D>();
-                    Debug.Log("1" + _rb);
+                    _rb = _gravityReverse.GetComponentsInChildren<Rigidbody2D>();
                     for (int i = 0; i < _rb.Length; i++)
                     {
                         _rb[i].gravityScale *= -1;
                         Debug.Log("2" + _rb[i].gravityScale, _rb[i]);
                     }
                     _prb.gravityScale *= -1;
-                    Debug.Log("3" + _prb.gravityScale,_prb);
                     _sr.StageRotate();
                     _sr._stageRotateCount++;
                 }
