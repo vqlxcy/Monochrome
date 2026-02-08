@@ -1771,7 +1771,7 @@ MonoBehaviour:
   - {fileID: 990333760}
   - {fileID: 1859119683}
   - {fileID: 1171411905}
-  _gravityReverse: {fileID: 0}
+  _gravityReverse: {fileID: 166720546}
   _collisionCoinList: []
   _isGoal: 0
   _isButtonClicked: 0
@@ -7774,7 +7774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1988101194
 Transform:
   m_ObjectHideFlags: 0
