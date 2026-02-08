@@ -51,6 +51,7 @@ public class GameController : MonoBehaviour
     bool _buttonSpawn;
     public bool _isButtonClicked = false;
     public bool _isPlayerDeath;
+    public bool _isRotate;
 
     void Start()
     {
