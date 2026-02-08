@@ -1835,7 +1835,7 @@ MonoBehaviour:
   _stage: {fileID: 147581985}
   _rotationAngle: 180
   _player: {fileID: 121522428}
-  _stageRotateCount: 3
+  _stageRotateCount: 5
 --- !u!114 &648946190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1874,6 +1874,7 @@ MonoBehaviour:
   _isGoal: 0
   _isButtonClicked: 0
   _isPlayerDeath: 0
+  _isRotate: 0
 --- !u!114 &648946191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6103,7 +6104,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.02108097, y: 0.2832861}
+  m_Offset: {x: -0.002524972, y: 0.2832861}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -6113,7 +6114,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 5.933691, y: 6.1121254}
+  m_Size: {x: 5.697629, y: 6.1121254}
   m_EdgeRadius: 0
 --- !u!212 &1844140306
 SpriteRenderer:
