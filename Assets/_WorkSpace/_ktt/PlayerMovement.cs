@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private string enemyTag = "Enemy";
     [SerializeField] private string bulletTag = "Bullet";
     [SerializeField] private float enemyBounceForce = 8f; // 敵を踏んだ時の跳ね返り
+    [SerializeField] private float buttonBounceForce = 6f; // スイッチ踏んだ時の跳ね返り
 
     [Header("サウンド設定")]
     [SerializeField] private AudioClip jumpSE;
@@ -212,7 +213,6 @@ public class PlayerMovement : MonoBehaviour
     {
         // 敵を破壊
         Destroy(enemy);
-
         // 踏んだ時の跳ね返り
         _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, enemyBounceForce);
     }
@@ -238,12 +238,15 @@ public class PlayerMovement : MonoBehaviour
         {
             _audioSource.PlayOneShot(buttonSE);
         }
-
         // GameControllerにボタンが押されたことを通知
         if (_gameController != null)
         {
             _gameController._isButtonClicked = true;
         }
+        // ボタンを破壊
+        Destroy(button);
+        // 踏んだ時の跳ね返り
+        _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, buttonBounceForce);
     }
 
     private void OnPlayerDeath()
