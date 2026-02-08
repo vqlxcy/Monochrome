@@ -988,7 +988,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.059973717, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -998,7 +998,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.88005257, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &121522431
 Rigidbody2D:
@@ -1040,7 +1040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
-  jumpForce: 14
+  jumpForce: 10
   groundCheck: {fileID: 1586260258}
   groundCheckSize: {x: 0.8, y: 0.1}
   goalTag: Goal
@@ -1048,6 +1048,7 @@ MonoBehaviour:
   enemyTag: Enemy
   bulletTag: Bullet
   enemyBounceForce: 8
+  buttonBounceForce: 6
   jumpSE: {fileID: 8300000, guid: d53b35f7e5efa394798821fb1bd6cf46, type: 3}
   goalSE: {fileID: 8300000, guid: bf2bb6fe3ad1fe44fbf3b5e14efc12f5, type: 3}
   buttonSE: {fileID: 8300000, guid: 452e787e091a7d44281fbfbc006e5cb6, type: 3}
@@ -2413,6 +2414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StageRotation
   _stage: {fileID: 147581985}
   _rotationAngle: 180
+  _player: {fileID: 0}
   _stageRotateCount: 3
 --- !u!114 &648946190
 MonoBehaviour:
@@ -2447,6 +2449,7 @@ MonoBehaviour:
   - {fileID: 1864372837}
   - {fileID: 848387715}
   - {fileID: 311879602}
+  _gravityReverse: {fileID: 0}
   _collisionCoinList: []
   _isGoal: 0
   _isButtonClicked: 0
