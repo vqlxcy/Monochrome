@@ -60,7 +60,7 @@ public class GameController : MonoBehaviour
         _whiteMoveBlock = GameObject.FindGameObjectWithTag("WhiteMove");
         _prb = _player.GetComponent<Rigidbody2D>();
 
-        _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
+        _saveWhiteMovePosition = _whiteMoveBlock.transform.localPosition;
         _isGoal = false;
         _sc._colorControlCount = 0;
 
@@ -94,7 +94,7 @@ public class GameController : MonoBehaviour
             _stageNumber = 0;
         }
 
-        _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
+        _saveWhiteMovePosition = _whiteMoveBlock.transform.localPosition;
         _savePlayerPosition = _player.transform.position;
 
         for (int i = 0; i < _collisionCoinList.Count; i++)
@@ -108,7 +108,7 @@ public class GameController : MonoBehaviour
     {
         if (_sc._colorControlNumber % 2 == 0)
         {
-            _whiteMoveBlock.transform.position = _saveWhiteMovePosition;
+            _whiteMoveBlock.transform.localPosition = _saveWhiteMovePosition;
         }
 
         if (Input.GetKeyDown(KeyCode.Return) && _sc._colorControlCount <= _colorControlLimit)
@@ -117,7 +117,7 @@ public class GameController : MonoBehaviour
             _sc._colorControlCount++;
             if (_sc._colorControlNumber % 2 == 0)
             {
-                _saveWhiteMovePosition = _whiteMoveBlock.transform.position;
+                _saveWhiteMovePosition = _whiteMoveBlock.transform.localPosition;
                 _player.transform.position = _savePlayerPosition;
                 _goal.SetActive(false);
             }
