@@ -795,11 +795,11 @@ Transform:
   m_GameObject: {fileID: 78349522}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.56568, y: -0.5184001, z: -1}
+  m_LocalPosition: {x: 7.7911, y: -1.81305, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 166720547}
+  m_Father: {fileID: 490617861}
   m_LocalEulerAnglesHint: {x: 180, y: 180, z: 180}
 --- !u!114 &78349526
 MonoBehaviour:
@@ -1253,8 +1253,7 @@ Transform:
   - {fileID: 304799730}
   - {fileID: 1825535266}
   - {fileID: 1592106265}
-  - {fileID: 728865763}
-  - {fileID: 78349525}
+  - {fileID: 490617861}
   m_Father: {fileID: 1553854382}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &186994051
@@ -1572,7 +1571,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: -1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1737,7 +1736,7 @@ MonoBehaviour:
   _stage: {fileID: 1553854382}
   _rotationAngle: 180
   _player: {fileID: 1592106259}
-  _stageRotateCount: 3
+  _stageRotateCount: 5
 --- !u!114 &344592771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1755,7 +1754,7 @@ MonoBehaviour:
   _stageRotateLimit: 5
   _player: {fileID: 1592106259}
   _goal: {fileID: 779328446}
-  _switch: {fileID: 0}
+  _switch: {fileID: 1988101193}
   _goalCoins:
   - {fileID: 6177347052790277815, guid: edd583465f7915d4abe7f03af573dced, type: 3}
   - {fileID: 4452345485519498873, guid: 00ade01ab74b08a4796a2427d81881da, type: 3}
@@ -1792,7 +1791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageColor
   _blackDeleteParent: {fileID: 1988101193}
-  _whiteDeleteParent: {fileID: 547476850}
+  _whiteDeleteParent: {fileID: 490617860}
   _monoParent: {fileID: 839759793}
   _monoParentBG: {fileID: 9480682}
   _blackBlock: {fileID: 21300000, guid: 08ed0a868343ff346b781e0b44db3e94, type: 3}
@@ -2445,7 +2444,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &547476850
+--- !u!1 &490617860
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2453,28 +2452,30 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 547476851}
+  - component: {fileID: 490617861}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: LookBlackEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &547476851
+--- !u!4 &490617861
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 547476850}
+  m_GameObject: {fileID: 490617860}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.22542, y: 1.29465, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
+  m_Children:
+  - {fileID: 728865763}
+  - {fileID: 78349525}
+  m_Father: {fileID: 166720547}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &571433322
 GameObject:
@@ -2949,11 +2950,11 @@ Transform:
   m_GameObject: {fileID: 728865760}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: -1.5443201, y: 3.9215999, z: -1}
+  m_LocalPosition: {x: -0.3189001, y: 2.6269498, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 166720547}
+  m_Father: {fileID: 490617861}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!114 &728865764
 MonoBehaviour:
@@ -8742,7 +8743,6 @@ SceneRoots:
   - {fileID: 2126085350}
   - {fileID: 779328447}
   - {fileID: 736143366}
-  - {fileID: 547476851}
   - {fileID: 2008709017}
   - {fileID: 414674814}
   - {fileID: 1237262456}
