@@ -1736,7 +1736,7 @@ MonoBehaviour:
   _stage: {fileID: 1553854382}
   _rotationAngle: 180
   _player: {fileID: 1592106259}
-  _stageRotateCount: 12
+  _stageRotateCount: 0
 --- !u!114 &344592771
 MonoBehaviour:
   m_ObjectHideFlags: 0
