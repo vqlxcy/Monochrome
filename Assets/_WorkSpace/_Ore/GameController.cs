@@ -66,6 +66,9 @@ public class GameController : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("Player");
         _whiteMoveBlock = GameObject.FindGameObjectsWithTag("WhiteMove");
         _prb = _player.GetComponent<Rigidbody2D>();
+
+        _saveWhiteMovePosition = new Vector3[_whiteMoveBlock.Length];
+
         for (int i = 0; i < _whiteMoveBlock.Length; i++)
         {
             _saveWhiteMovePosition[i] = _whiteMoveBlock[i].transform.localPosition;
