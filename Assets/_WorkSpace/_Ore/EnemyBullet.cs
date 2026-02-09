@@ -16,6 +16,7 @@ public class EnemyBullet : MonoBehaviour
     {
         _tr = transform;
         _gc = FindAnyObjectByType<GameController>();
+        _direction = _tr.localScale.x;
     }
 
     void Update()
@@ -23,14 +24,14 @@ public class EnemyBullet : MonoBehaviour
         if (_gc._isRotate)
         {
             _moveDirection = -1;
-            _direction = _tr.localScale.x;
             _direction *= -1;
+            _tr.localScale = new Vector3(_direction, 0.1f, 1);
         }
         else
         {
             _moveDirection = 1;
-            _direction = _tr.localScale.x;
             _direction *= -1;
+            _tr.localScale = new Vector3(_direction, 0.1f, 1);
         }
 
         _tr.position += _move * Time.deltaTime * _moveSpeed * _moveDirection;
