@@ -212,7 +212,7 @@ public class PlayerMovement : MonoBehaviour
     private void StompEnemy(GameObject enemy)
     {
         // “G‚ð”j‰ó
-        Destroy(enemy);
+        DestroyImmediate(enemy);
         _gameController._livingEnemyControlNumber = 0;
         for (int i = 0; i < _gameController._enemys.Length; i++)
         {
