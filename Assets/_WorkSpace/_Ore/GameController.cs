@@ -102,7 +102,7 @@ public class GameController : MonoBehaviour
             _stageNumber = 0;
         }
 
-        if (_enemys.Length == 1 && _enemys[0] == _decoy)
+        if (_enemys.Length == 1 && _enemys[0] == _decoy || _enemys.Length == 0)
         {
             _buttonSpawn = true;
         }
