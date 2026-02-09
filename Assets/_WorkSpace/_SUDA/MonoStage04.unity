@@ -1736,7 +1736,7 @@ MonoBehaviour:
   _stage: {fileID: 1553854382}
   _rotationAngle: 180
   _player: {fileID: 1592106259}
-  _stageRotateCount: 5
+  _stageRotateCount: 8
 --- !u!114 &344592771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1751,7 +1751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameController
   _nextStage: MonoGameClear
   _colorControlLimit: 3
-  _stageRotateLimit: 5
+  _stageRotateLimit: 8
   _player: {fileID: 1592106259}
   _goal: {fileID: 779328446}
   _switch: {fileID: 1988101193}
