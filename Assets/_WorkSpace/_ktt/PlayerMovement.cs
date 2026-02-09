@@ -211,6 +211,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void StompEnemy(GameObject enemy)
     {
+        // “G‚ð”j‰ó
+        Destroy(enemy);
         _gameController._livingEnemyControlNumber = 0;
         for (int i = 0; i < _gameController._enemys.Length; i++)
         {
@@ -227,8 +229,6 @@ public class PlayerMovement : MonoBehaviour
         {
             _gameController._buttonSpawn = true;
         }
-        // “G‚ð”j‰ó
-        Destroy(enemy);
         // “¥‚ñ‚¾Žž‚Ì’µ‚Ë•Ô‚è
         _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, enemyBounceForce);
     }
