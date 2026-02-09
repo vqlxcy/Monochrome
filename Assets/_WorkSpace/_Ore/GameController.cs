@@ -102,6 +102,11 @@ public class GameController : MonoBehaviour
             _stageNumber = 0;
         }
 
+        if (_enemys[0] == _decoy && _enemys.Length == 1)
+        {
+            _buttonSpawn = true;
+        }
+
         _saveWhiteMovePosition = _whiteMoveBlock.transform.localPosition;
         _savePlayerPosition = _player.transform.position;
 
