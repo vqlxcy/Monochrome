@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
     [SerializeField,Header("スイッチ")]
     GameObject _switch;
     [SerializeField,Header("Emptyいれてくれぇ")]
-    GameObject _decoy;
+    public GameObject _decoy;
     [SerializeField, Header("取得できるコイン")]
     GameObject[] _goalCoins;
     [SerializeField, Header("取得できないコイン")]
@@ -48,6 +48,7 @@ public class GameController : MonoBehaviour
 
     int _stageNumber;
     int _randomInt;
+    public int _livingEnemyControlNumber;
     Vector3 _savePlayerPosition;
     Vector3 _saveWhiteMovePosition;
     GameObject _whiteMoveBlock;
@@ -61,11 +62,6 @@ public class GameController : MonoBehaviour
     void Start()
     {
         _enemys = GameObject.FindGameObjectsWithTag("Enemy");
-
-        if (_enemys.Length == 0)
-        {
-            _enemys[0] = _decoy;
-        }
         _sc = GetComponent<StageColor>();
         _sr = GetComponent<StageRotation>();
         _player = GameObject.FindGameObjectWithTag("Player");
@@ -153,16 +149,6 @@ public class GameController : MonoBehaviour
             if (_collisionCoinList.Count == 0)
             {
                 _isGoal = true;
-            }
-
-            if (_enemys.Length == 0)
-            {
-                _enemys[0] = _decoy;
-            }
-
-            if (_enemys.Length == 1 && _enemys[0] == _decoy)
-            {
-                _buttonSpawn = true;
             }
 
             if (_buttonSpawn)
