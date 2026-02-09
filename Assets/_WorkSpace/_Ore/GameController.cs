@@ -23,6 +23,8 @@ public class GameController : MonoBehaviour
     GameObject _goal;
     [SerializeField,Header("スイッチ")]
     GameObject _switch;
+    [SerializeField,Header("Emptyいれてくれぇ")]
+    GameObject _decoy;
     [SerializeField, Header("取得できるコイン")]
     GameObject[] _goalCoins;
     [SerializeField, Header("取得できないコイン")]
@@ -151,6 +153,7 @@ public class GameController : MonoBehaviour
             if (_enemys.Length == 0)
             {
                 _buttonSpawn = true;
+                _enemys[0] = _decoy;
             }
 
             if (_buttonSpawn)
