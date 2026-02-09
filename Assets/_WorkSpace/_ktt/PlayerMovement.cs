@@ -246,7 +246,7 @@ public class PlayerMovement : MonoBehaviour
             _gameController._isButtonClicked = true;
         }
         // ƒ{ƒ^ƒ“‚ð”j‰ó
-        Destroy(button);
+        button.SetActive(false);
         // “¥‚ñ‚¾Žž‚Ì’µ‚Ë•Ô‚è
         _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, buttonBounceForce);
     }
