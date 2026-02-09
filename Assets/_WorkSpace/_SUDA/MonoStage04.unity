@@ -1736,7 +1736,7 @@ MonoBehaviour:
   _stage: {fileID: 1553854382}
   _rotationAngle: 180
   _player: {fileID: 1592106259}
-  _stageRotateCount: 8
+  _stageRotateCount: 12
 --- !u!114 &344592771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1750,8 +1750,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
   _nextStage: MonoGameClear
-  _colorControlLimit: 8
-  _stageRotateLimit: 8
+  _colorControlLimit: 12
+  _stageRotateLimit: 12
   _player: {fileID: 1592106259}
   _goal: {fileID: 779328446}
   _switch: {fileID: 1439403410}
@@ -6768,7 +6768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
-  jumpForce: 10
+  jumpForce: 11
   groundCheck: {fileID: 1002655384}
   groundCheckSize: {x: 0.8, y: 0.1}
   goalTag: Goal
