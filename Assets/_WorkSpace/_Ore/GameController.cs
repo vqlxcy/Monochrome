@@ -50,7 +50,7 @@ public class GameController : MonoBehaviour
     int _randomInt;
     public int _livingEnemyControlNumber;
     Vector3 _savePlayerPosition;
-    Vector3 _saveWhiteMovePosition;
+    Vector3[] _saveWhiteMovePosition;
     GameObject[] _whiteMoveBlock;
 
     public bool _isGoal;
@@ -68,7 +68,7 @@ public class GameController : MonoBehaviour
         _prb = _player.GetComponent<Rigidbody2D>();
         for (int i = 0; i < _whiteMoveBlock.Length; i++)
         {
-            _saveWhiteMovePosition = _whiteMoveBlock[i].transform.localPosition;
+            _saveWhiteMovePosition[i] = _whiteMoveBlock[i].transform.localPosition;
         }
         _isGoal = false;
         _sc._colorControlCount = 0;
@@ -110,7 +110,7 @@ public class GameController : MonoBehaviour
 
         for (int i = 0; i < _whiteMoveBlock.Length; i++)
         {
-            _saveWhiteMovePosition = _whiteMoveBlock[i].transform.localPosition;
+            _saveWhiteMovePosition[i] = _whiteMoveBlock[i].transform.localPosition;
         }
         _savePlayerPosition = _player.transform.position;
 
@@ -127,7 +127,7 @@ public class GameController : MonoBehaviour
         {
             for (int i = 0; i < _whiteMoveBlock.Length; i++)
             {
-                _whiteMoveBlock[i].transform.localPosition = _saveWhiteMovePosition;
+                _whiteMoveBlock[i].transform.localPosition = _saveWhiteMovePosition[i];
             }
         }
 
@@ -139,7 +139,7 @@ public class GameController : MonoBehaviour
             {
                 for (int i = 0; i < _whiteMoveBlock.Length; i++)
                 {
-                    _saveWhiteMovePosition = _whiteMoveBlock[i].transform.localPosition;
+                    _saveWhiteMovePosition[i] = _whiteMoveBlock[i].transform.localPosition;
                 }
                 _player.transform.position = _savePlayerPosition;
                 _goal.SetActive(false);
