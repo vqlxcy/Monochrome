@@ -2069,6 +2069,7 @@ MonoBehaviour:
   _player: {fileID: 121522428}
   _goal: {fileID: 941547846}
   _switch: {fileID: 2045760818}
+  _decoy: {fileID: 0}
   _goalCoins:
   - {fileID: 6177347052790277815, guid: edd583465f7915d4abe7f03af573dced, type: 3}
   - {fileID: 4452345485519498873, guid: 00ade01ab74b08a4796a2427d81881da, type: 3}
@@ -2088,6 +2089,7 @@ MonoBehaviour:
   _gravityReverse: {fileID: 2064324154}
   _enemys: []
   _collisionCoinList: []
+  _livingEnemyControlNumber: 0
   _isGoal: 0
   _buttonSpawn: 0
   _isButtonClicked: 0
@@ -3540,7 +3542,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0000009536743, y: 3.6552982}
+  m_Offset: {x: -0.0000009536743, y: 3.7010937}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3550,7 +3552,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 7.4241114, y: 14.303606}
+  m_Size: {x: 7.4241114, y: 14.212015}
   m_EdgeRadius: 0
 --- !u!1 &1100494877
 GameObject:
