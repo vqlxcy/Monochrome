@@ -61,6 +61,11 @@ public class GameController : MonoBehaviour
     void Start()
     {
         _enemys = GameObject.FindGameObjectsWithTag("Enemy");
+
+        if (_enemys.Length == 0)
+        {
+            _enemys[0] = _decoy;
+        }
         _sc = GetComponent<StageColor>();
         _sr = GetComponent<StageRotation>();
         _player = GameObject.FindGameObjectWithTag("Player");
@@ -152,8 +157,12 @@ public class GameController : MonoBehaviour
 
             if (_enemys.Length == 0)
             {
-                _buttonSpawn = true;
                 _enemys[0] = _decoy;
+            }
+
+            if (_enemys.Length == 1 && _enemys[0] == _decoy)
+            {
+                _buttonSpawn = true;
             }
 
             if (_buttonSpawn)
