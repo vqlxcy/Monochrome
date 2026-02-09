@@ -2274,6 +2274,7 @@ MonoBehaviour:
   _enemys: []
   _collisionCoinList: []
   _isGoal: 0
+  _buttonSpawn: 0
   _isButtonClicked: 0
   _isPlayerDeath: 0
   _isRotate: 0
