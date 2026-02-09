@@ -61,7 +61,6 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        _enemys = GameObject.FindGameObjectsWithTag("Enemy");
         _sc = GetComponent<StageColor>();
         _sr = GetComponent<StageRotation>();
         _player = GameObject.FindGameObjectWithTag("Player");
