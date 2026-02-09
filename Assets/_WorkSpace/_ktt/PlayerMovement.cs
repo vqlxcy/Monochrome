@@ -211,6 +211,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void StompEnemy(GameObject enemy)
     {
+        _gameController._enemys = GameObject.FindGameObjectsWithTag("Enemy");
         // “G‚ð”j‰ó
         Destroy(enemy);
         // “¥‚ñ‚¾Žž‚Ì’µ‚Ë•Ô‚è
