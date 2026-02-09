@@ -6596,7 +6596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletEnemy
   _enemyAttackInterval: 2.4
-  _enemyBullet: {fileID: 7403114387752582930, guid: 8a39563c05b0dc54581aa0e4fc434687, type: 3}
+  _enemyBullet: {fileID: 7403114387752582930, guid: 222272bedd328dc45940a32ab307d154, type: 3}
 --- !u!1 &1967765844
 GameObject:
   m_ObjectHideFlags: 0
