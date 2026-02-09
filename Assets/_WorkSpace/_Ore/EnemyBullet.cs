@@ -12,30 +12,28 @@ public class EnemyBullet : MonoBehaviour
 
     int _moveDirection;
 
-    public float _direction;
+    float _syokiti;
+    public float _direction = 1;
 
     void Awake()
     {
         _tr = transform;
         _gc = FindAnyObjectByType<GameController>();
-        _direction = _tr.localScale.x;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            _direction *= -1;
-        }
         if (_gc._isRotate)
         {
             _moveDirection = -1;
-            _tr.localScale = new Vector3(_direction, 0.1f, 1);
+            _direction = -1;
+            _tr.localScale = new Vector3(_syokiti * _direction, 0.1f, 1);
         }
         else
         {
             _moveDirection = 1;
-            _tr.localScale = new Vector3(_direction, 0.1f, 1);
+            _direction = 1;
+            _tr.localScale = new Vector3(_syokiti * _direction, 0.1f, 1);
         }
 
         _tr.position += _move * Time.deltaTime * _moveSpeed * _moveDirection;
