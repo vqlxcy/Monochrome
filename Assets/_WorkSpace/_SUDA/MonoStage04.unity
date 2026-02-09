@@ -813,7 +813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99bc4c48a49d86f4bb04f9d757e7236b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletEnemy
-  _enemyAttackInterval: 1
+  _enemyAttackInterval: 2.4
   _enemyBullet: {fileID: 7403114387752582930, guid: 8a39563c05b0dc54581aa0e4fc434687, type: 3}
 --- !u!61 &78349527
 BoxCollider2D:
@@ -1754,7 +1754,8 @@ MonoBehaviour:
   _stageRotateLimit: 8
   _player: {fileID: 1592106259}
   _goal: {fileID: 779328446}
-  _switch: {fileID: 1988101193}
+  _switch: {fileID: 1439403410}
+  _decoy: {fileID: 2092863463}
   _goalCoins:
   - {fileID: 6177347052790277815, guid: edd583465f7915d4abe7f03af573dced, type: 3}
   - {fileID: 4452345485519498873, guid: 00ade01ab74b08a4796a2427d81881da, type: 3}
@@ -1772,9 +1773,14 @@ MonoBehaviour:
   - {fileID: 1859119683}
   - {fileID: 1171411905}
   _gravityReverse: {fileID: 166720546}
-  _enemys: []
+  _enemys:
+  - {fileID: 2092863463}
+  - {fileID: 728865760}
+  - {fileID: 78349522}
   _collisionCoinList: []
+  _livingEnemyControlNumber: 0
   _isGoal: 0
+  _buttonSpawn: 0
   _isButtonClicked: 0
   _isPlayerDeath: 0
   _isRotate: 0
@@ -3043,7 +3049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99bc4c48a49d86f4bb04f9d757e7236b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletEnemy
-  _enemyAttackInterval: 1
+  _enemyAttackInterval: 2.4
   _enemyBullet: {fileID: 7403114387752582930, guid: 8a39563c05b0dc54581aa0e4fc434687, type: 3}
 --- !u!61 &728865765
 BoxCollider2D:
@@ -9293,6 +9299,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2092863463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2092863464}
+  m_Layer: 0
+  m_Name: EnemyDecoySan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2092863464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092863463}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.1221, y: 2.7973, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2126085346
 GameObject:
   m_ObjectHideFlags: 0
@@ -9471,3 +9508,4 @@ SceneRoots:
   - {fileID: 1079080319}
   - {fileID: 1612373927}
   - {fileID: 1344286506}
+  - {fileID: 2092863464}
