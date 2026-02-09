@@ -2253,7 +2253,7 @@ MonoBehaviour:
   _stageRotateLimit: 5
   _player: {fileID: 121522428}
   _goal: {fileID: 554248510}
-  _switch: {fileID: 0}
+  _switch: {fileID: 2045760818}
   _goalCoins:
   - {fileID: 6177347052790277815, guid: edd583465f7915d4abe7f03af573dced, type: 3}
   - {fileID: 4452345485519498873, guid: 00ade01ab74b08a4796a2427d81881da, type: 3}
