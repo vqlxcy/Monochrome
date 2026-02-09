@@ -212,7 +212,6 @@ public class PlayerMovement : MonoBehaviour
     private void StompEnemy(GameObject enemy)
     {
         _gameController._enemys = GameObject.FindGameObjectsWithTag("Enemy");
-        //_gameController._buttonSpawn = false;
         // “G‚ð”j‰ó
         Destroy(enemy);
         // “¥‚ñ‚¾Žž‚Ì’µ‚Ë•Ô‚è
@@ -245,6 +244,8 @@ public class PlayerMovement : MonoBehaviour
         {
             _gameController._isButtonClicked = true;
         }
+
+        _gameController._buttonSpawn = false;
         // ƒ{ƒ^ƒ“‚ð”j‰ó
         button.SetActive(false);
         // “¥‚ñ‚¾Žž‚Ì’µ‚Ë•Ô‚è
