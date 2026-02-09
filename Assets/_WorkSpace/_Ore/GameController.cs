@@ -201,7 +201,7 @@ public class GameController : MonoBehaviour
 
             if (_stageNumber >= 3)
             {
-                if (Input.GetKeyDown(KeyCode.R) && _sr._stageRotateCount <= _stageRotateLimit)
+                if (Input.GetKeyDown(KeyCode.R) && _sr._stageRotateCount < _stageRotateLimit)
                 {
                     _rb = _gravityReverse.GetComponentsInChildren<Rigidbody2D>();
                     for (int i = 0; i < _rb.Length; i++)
