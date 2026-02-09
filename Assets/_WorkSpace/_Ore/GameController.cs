@@ -51,7 +51,7 @@ public class GameController : MonoBehaviour
     GameObject _whiteMoveBlock;
 
     public bool _isGoal;
-    bool _buttonSpawn = false;
+    public bool _buttonSpawn = false;
     public bool _isButtonClicked = false;
     public bool _isPlayerDeath;
     public bool _isRotate = false;
