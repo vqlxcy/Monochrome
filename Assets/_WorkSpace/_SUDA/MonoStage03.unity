@@ -2064,7 +2064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
   _nextStage: MonoStage04
-  _colorControlLimit: 3
+  _colorControlLimit: 8
   _stageRotateLimit: 5
   _player: {fileID: 121522428}
   _goal: {fileID: 941547846}
@@ -2089,6 +2089,8 @@ MonoBehaviour:
   _gravityReverse: {fileID: 2064324154}
   _enemys:
   - {fileID: 972625473}
+  - {fileID: 2114450495}
+  - {fileID: 1933876633}
   _collisionCoinList: []
   _livingEnemyControlNumber: 0
   _isGoal: 0
@@ -3338,7 +3340,7 @@ GameObject:
   m_Component:
   - component: {fileID: 972625474}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: DecoyEnemySan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6593,7 +6595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99bc4c48a49d86f4bb04f9d757e7236b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletEnemy
-  _enemyAttackInterval: 1
+  _enemyAttackInterval: 2.4
   _enemyBullet: {fileID: 7403114387752582930, guid: 8a39563c05b0dc54581aa0e4fc434687, type: 3}
 --- !u!1 &1967765844
 GameObject:
