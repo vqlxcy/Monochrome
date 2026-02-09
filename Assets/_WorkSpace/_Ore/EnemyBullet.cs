@@ -11,7 +11,9 @@ public class EnemyBullet : MonoBehaviour
     int _moveSpeed;
 
     int _moveDirection;
-    float _direction;
+
+    public float _direction;
+
     void Awake()
     {
         _tr = transform;
@@ -21,16 +23,18 @@ public class EnemyBullet : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            _direction *= -1;
+        }
         if (_gc._isRotate)
         {
             _moveDirection = -1;
-            _direction *= -1;
             _tr.localScale = new Vector3(_direction, 0.1f, 1);
         }
         else
         {
             _moveDirection = 1;
-            _direction *= -1;
             _tr.localScale = new Vector3(_direction, 0.1f, 1);
         }
 
