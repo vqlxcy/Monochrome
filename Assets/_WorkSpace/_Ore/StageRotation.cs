@@ -11,9 +11,18 @@ public class StageRotation : MonoBehaviour
 
     public int _stageRotateCount;
 
+    int _stageRotationControlnumber;
+
     public void StageRotate()
     {
-        _stage.eulerAngles = new Vector3(0, 0, _rotationAngle);
+        if (_stageRotationControlnumber % 2 == 0)
+        {
+            _stage.eulerAngles = new Vector3(0, 0, _rotationAngle);
+        }
+        else
+        {
+            _stage.eulerAngles = new Vector3(0, 0, 0);
+        }
         _player.transform.eulerAngles = new Vector3(0, 0, 0);
     }
 }
