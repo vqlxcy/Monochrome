@@ -211,8 +211,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void StompEnemy(GameObject enemy)
     {
-        _gameController._enemys = GameObject.FindGameObjectsWithTag("Enemy");
-
         _gameController._livingEnemyControlNumber = 0;
         for (int i = 0; i < _gameController._enemys.Length; i++)
         {
