@@ -24,5 +24,6 @@ public class StageRotation : MonoBehaviour
             _stage.eulerAngles = new Vector3(0, 0, 0);
         }
         _player.transform.eulerAngles = new Vector3(0, 0, 0);
+        _stageRotationControlnumber++;
     }
 }
